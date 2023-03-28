@@ -5,6 +5,19 @@ int additionner(int a, int b) {
 
 additionner(5, 6);
 
+// Somme de deux entiers positifs (retourner 0 sinon)
+int additionner(int a, int b) {
+    if (a <= 0 || b <= 0) {
+        return 0;
+    }
+
+    return a + b;
+}
+
+additionner(0, 6);
+additionner(5, 0);
+additionner(5, 6);
+
 // Multiplication simple de deux entiers avec additions seulement
 int multiplier(int a, int b) {
     int resultat = 0;
@@ -22,6 +35,27 @@ multiplier(2, 4);
 multiplier(2, 0);
 multiplier(5, 8);
 
+// Faire en sorte de pouvoir calculer une puissance n (2^4 = 2*2*2*2)
+int puissance(int a, int b) {
+    int res = 1;
+
+    if (b == 0) {
+        return 1;
+    }
+
+    if (a == 0) {
+        return 0;
+    }
+
+    for (int i = 0; i < b; i = i + 1) {
+        res = res * a;
+    }
+
+    return res;
+}
+
+puissance(2, 4);
+
 
 // Calculer la somme des entiers contenus dans un tableau reçu en paramètre
 int somme(int[] tab) {
@@ -38,6 +72,40 @@ int[] monTab = { 4, 5, 6 };
 somme(monTab);
 
 
+// Compter le nombre de caractères contenus dans un tableau de caractères
+int nbCar(char[] tab) {
+    int nb = 0;
+
+    for (int i = 0; i < tab.length; i = i + 1) {
+        if (tab[i] != 0) {
+            nb = nb + 1;
+        }
+    }
+
+    return nb;
+}
+
+char[] maPhrase = { 'u', 'n', 'e', ' ', 'p', 'h', 'r', 'a', 's', 'e' };
+nbCar(maPhrase);
+
+
+// Compter le nombre d’espaces (caractères espace) contenus dans un tableau de caractères
+int nbEspaces(char[] tab) {
+    int nb = 0;
+
+    for (int i = 0; i < tab.length; i = i + 1) {
+        if (tab[i] == ' ') {
+            nb++;
+        }
+    }
+
+    return nb;
+}
+
+char[] maPhrase = { 'u', 'n', 'e', ' ', 'p', 'h', 'r', 'a', 's', 'e' };
+nbEspaces(maPhrase);
+
+
 // Compter le nombre de mots contenus dans un tableau de caractères
 int nbMots(char[] tab) {
     int nb = 0;
@@ -49,7 +117,7 @@ int nbMots(char[] tab) {
             // if (isWord != true) {
             // On teste si isWord est FAUX (NON (!) VRAI)
             if (!isWord) {
-                nb = nb + 1;
+                nb++;
                 isWord = true;
             }
         }
@@ -72,8 +140,6 @@ int nbVoyelles(char[] tab) {
 
     for (int i = 0; i < tab.length; i++) {
         if (tab[i] == 'a' || tab[i] == 'e' || tab[i] == 'i' || tab[i] == 'o' || tab[i] == 'u' || tab[i] == 'y') {
-            // nb = nb + 1;
-            // nb += 1;
             nb++;
         }
     }
@@ -85,8 +151,24 @@ char[] maPhrase = { 'u', 'n', 'e', ' ', 'p', 'h', 'r', 'a', 's', 'e', '!' };
 nbVoyelles(maPhrase);
 
 
+// Ranger chaque caractère d’un tableau par ordre alphabétique
+void trier(char[] tab) {
+    for (int i = tab.length - 1; i >= 0; i = i - 1) {
+        for (int j = i - 1; j >= 0; j = j - 1) {
+            if (tab[i] < tab[j]) {
+                char tmp = tab[i];
+                tab[i] = tab[j];
+                tab[j] = tmp;
+            }
+        }
+    }
+}
+
+char[] maPhrase = { 'u', 'n', 'e', ' ', 'p', 'h', 'r', 'a', 's', 'e', '!' };
+trier(maPhrase);
+maPhrase;
+
 // Insérer un nouvel entier dans un tableau (pas nécessairement plein) à un indice précis
-// (On considère que le 0 est une case vide)
 int[] inserer(int[] tab, int valeur, int indice) {
     //Si on a une case libre
     if (tab[indice] == 0) {
@@ -127,6 +209,6 @@ int[] inserer(int[] tab, int valeur, int indice) {
 }
 
 int[] monTab = { 4, 8, 1, 0, 2 };
-monTab = inserer(monTab, 10, 2); // 4, 8, 10, 1, 0, 2
-monTab = inserer(monTab, 42, 0); // 42, 4, 8, 10, 1, 0, 2
-monTab = inserer(monTab, 18, 5); // 42, 4, 8, 10, 1, 18, 2
+monTab = inserer(monTab, 10, 2);
+monTab = inserer(monTab, 42, 0);
+monTab = inserer(monTab, 18, 5);
