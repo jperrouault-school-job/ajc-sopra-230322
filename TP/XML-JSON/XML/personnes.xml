@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+
+<!-- Racine -->
+<personnes>
+    <!-- En utilisant les balises -->
+    <personne>
+        <id>5</id>
+        <prenom>Jérémy</prenom>
+        <nom>PERROUAULT</nom>
+    </personne>
+
+    <!-- En utilisant des attributs -->
+    <personne id="6" nom="PERROUAULT" prenom="Alissa"></personne>
+
+    <!-- Balise auto-fermante -->
+    <personne id="7" nom="PERROUAULT" prenom="Dylan" />
+</personnes>

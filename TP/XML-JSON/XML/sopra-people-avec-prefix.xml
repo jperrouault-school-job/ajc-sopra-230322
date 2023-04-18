@@ -1,0 +1,19 @@
+<!-- Créer un document XML qui doit utiliser un schéma dont l'espace est : http://soprasteria.com/people
+> people.xml
+
+Le schéma associé est disponible à l'adresse http://soprasteria.com/people.xsd
+
+Dans ce schéma, l'élément racine est "people", il peut contenir un élément enfant "personne", avec un attribut nom, et prenom
+
+Utiliser le préfix "ppl". -->
+
+
+<?xml version="1.0" standalone="no" ?>
+
+<ppl:people
+    xmlns:ppl="http://soprasteria.com/people"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://soprasteria.com/people http://soprasteria.com/people.xsd">
+
+    <ppl:personne nom="Démo" prenom="D1" />
+</ppl:people>

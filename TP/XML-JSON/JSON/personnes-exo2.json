@@ -1,0 +1,29 @@
+[
+    {
+        "id": 5,
+        "active": true,
+        "nom": "PERROUAULT",
+        "prenom": "Jérémy",
+        "telephone": "0620304852",
+        "adresses": [
+            {
+                "rue": "23 Allée de la Soif",
+                "codePostal": "35000",
+                "ville": "RENNES"
+            },
+            {
+                "rue": "6 rue des Environs",
+                "codePostal": "06000",
+                "ville": "NICE"
+            }
+        ]
+    },
+
+    {
+        "id": 6,
+        "active": false,
+        "nom": "PERROUAULT",
+        "prenom": "Alissa",
+        "adresses": []
+    }
+]

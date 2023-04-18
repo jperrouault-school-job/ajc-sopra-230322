@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE personnes SYSTEM "personnes.dtd">
+
+<personnes>
+    <personne id="5">
+        <nom>PERROUAULT</nom>
+        <prenom>Jérémy</prenom>
+        <age>25</age>
+        <email>jeremy.perrouault@gmail.com</email>
+        <email>jeremy.perrouault@ascadis.fr</email>
+        <email>jeremy.perrouault@ajc.fr</email>
+    </personne>
+
+    <personne id="6" nom="PERROUAULT" prenom="Alissa" age="30">
+        <email>alissa.perrouault@gmail.com</email>
+    </personne>
+</personnes>
