@@ -1,0 +1,126 @@
+# Initialisation - quand le repo distant est pas initialisé
+git init
+git add .
+git commit -m "Votre message : init"
+# git branch -M main
+git remote add origin urlgit (git@github.com:votrelogin/votrerepo.git)
+# git push -u origin main
+git push -u origin master
+
+# Clonage - par défaut, git créera un répertoire "votrerepo"
+git clone urlgit (git@github.com:votrelogin/votrerepo.git) [repertoire]
+
+
+# Vérifier les modifications en cours
+git status
+
+# Ajouter des fichiers dans un commit
+git add repertoire/fichier
+git add . (tout)
+git add repertoire (tout le répertoire)
+git add repertoire/*.txt (tout les txt du répertoire)
+etc. etc.
+
+# Commit - Créer une nouvelle version
+git commit -m "Le message"
+
+# Envoyer sur le repo distant
+git push
+
+# Exemples de commande
+git add .
+git commit -m "Voici les modifs"
+git push
+
+
+# Vérifier si il y a des modifs à récupérer
+git fetch
+git status
+
+# Récupérer les modifications
+git pull
+
+# Exemple
+git fetch
+git status
+git pull
+
+# Mettre en réserve (remiser) votre travail
+git stash
+
+# Regarder la liste des modifications en réserve
+git stash list
+
+# Récupérer le stash
+git stash pop
+git stash pop {id}
+git stash pop 0
+
+# Exemple complet
+git add .
+git commit -m "votre commit"
+git push # qui n'a pas marché
+git stash
+git pull
+git stash pop
+# si conflit
+git add .
+git commit -m "conflit résolu"
+git push
+
+# Exemple complet 2
+git fetch
+git status
+git add .
+git stash
+git pull
+git stash list
+git stash pop
+git add .
+git commit -m "voilà c'est fait"
+git push
+
+
+
+# Vérifier l'environnement GIT
+git remote -v
+
+# Switcher d'environnement (HTTPS -> SSH par exemple)
+git remote set-url origin urlgit (git@github.com:votrelogin/votrerepo.git)
+
+
+
+# /!\ Les commandes git se font sur la branche en cours
+
+# Récupérer le nom des branches locales (la branche en cours est préfixé d'une étoile)
+git branch
+
+# Récupérer le nom des branches distantes (la branche en cours est préfixé d'une étoile)
+git branch -r
+
+# Récupérer le nom de toutes les branches
+git branch -a
+
+# Créer une nouvelle branche
+git branch nombranche
+
+# Se déplacer vers une branche locale
+git checkout nombranche
+
+# Créer et se déplacer vers une nouvelle branche locale (raccourcis 2 commandes précédentes)
+git checkout -b nombranche
+
+# Se déplacer vers une branche distante (qui n'existe pas en local)
+git checkout --track origin/nombranche
+
+# Push d'une branche locale vers une branche distante qui n'existe pas encore (comme à l'initialisation)
+git push -u origin nombranche
+
+# Fusionner deux branches (les modifications de autrebranche viennent dans la branche en cours)
+git merge autrebranche
+
+# Supprimer une branche locale (il ne faut plus y être !)
+git branch -D nombranche
+
+# Supprimer une branche distante
+git push origin --delete nombranche
