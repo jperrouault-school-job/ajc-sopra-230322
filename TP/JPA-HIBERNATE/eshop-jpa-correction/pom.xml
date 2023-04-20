@@ -9,5 +9,18 @@
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
+		
+		<hibernate.version>6.2.1.Final</hibernate.version>
 	</properties>
+	
+	<dependencies>
+		
+		<!-- JPA / HIBERNATE -->
+		<dependency>
+		    <groupId>org.hibernate.orm</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>${hibernate.version}</version>
+		</dependency>
+
+	</dependencies>
 </project>
