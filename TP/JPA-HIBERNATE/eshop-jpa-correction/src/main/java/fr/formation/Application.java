@@ -38,5 +38,11 @@ public class Application {
 		for (Reparateur r : reparateurs) {
 			System.out.println(r.getNom());
 		}
+		
+		// Lambda
+		em
+			.createQuery("select r from Reparateur r", Reparateur.class)
+			.getResultList()
+			.forEach(r -> System.out.println(r.getNom()));
 	}
 }
