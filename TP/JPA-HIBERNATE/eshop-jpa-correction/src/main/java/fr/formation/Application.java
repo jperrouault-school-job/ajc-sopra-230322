@@ -2,6 +2,7 @@ package fr.formation;
 
 import java.util.List;
 
+import fr.formation.model.Administrateur;
 import fr.formation.model.Produit;
 import fr.formation.model.Reparateur;
 import jakarta.persistence.EntityManager;
@@ -41,8 +42,8 @@ public class Application {
 		
 		// Lambda
 		em
-			.createQuery("select r from Reparateur r", Reparateur.class)
+			.createQuery("select a from Administrateur a", Administrateur.class)
 			.getResultList()
-			.forEach(r -> System.out.println(r.getNom()));
+			.forEach(a -> System.out.println(a.getUsername()));
 	}
 }
