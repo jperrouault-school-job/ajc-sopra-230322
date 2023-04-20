@@ -26,7 +26,7 @@ public class Application {
 		
 		// Parcours
 		for (Produit p : produits) {
-			System.out.println(p.getNom());
+			System.out.println(p.getNom() + ", fourni par " + p.getFournisseur().getNom());
 		}
 		
 		
