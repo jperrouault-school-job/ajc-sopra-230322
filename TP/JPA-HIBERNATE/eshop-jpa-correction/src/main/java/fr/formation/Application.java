@@ -54,6 +54,10 @@ public class Application {
 		
 		for (Fournisseur f : fournisseurs) {
 			System.out.println(f.getNom() + ", " + f.getProduits().size() + " produit(s).");
+			
+			for (Produit p : f.getProduits()) {
+				System.out.println(p.getNom());
+			}
 		}
 	}
 }
