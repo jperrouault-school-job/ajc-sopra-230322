@@ -11,6 +11,7 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		
 		<hibernate.version>6.2.1.Final</hibernate.version>
+		<postgres.version>42.6.0</postgres.version>
 	</properties>
 	
 	<dependencies>
@@ -20,6 +21,13 @@
 		    <groupId>org.hibernate.orm</groupId>
 		    <artifactId>hibernate-core</artifactId>
 		    <version>${hibernate.version}</version>
+		</dependency>
+		
+		<!-- Connecteur PostgreSQL -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>${postgres.version}</version>
 		</dependency>
 
 	</dependencies>
