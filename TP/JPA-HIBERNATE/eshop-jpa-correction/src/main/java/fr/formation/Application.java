@@ -3,6 +3,7 @@ package fr.formation;
 import java.util.List;
 
 import fr.formation.model.Produit;
+import fr.formation.model.Reparateur;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -25,6 +26,17 @@ public class Application {
 		// Parcours
 		for (Produit p : produits) {
 			System.out.println(p.getNom());
+		}
+		
+		
+		// Récupérer la liste des réparateurs
+		List<Reparateur> reparateurs = em
+			.createQuery("select r from Reparateur r", Reparateur.class)
+			.getResultList();
+		
+		// Parcours
+		for (Reparateur r : reparateurs) {
+			System.out.println(r.getNom());
 		}
 	}
 }
