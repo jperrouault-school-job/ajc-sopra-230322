@@ -1,10 +1,13 @@
 package fr.formation.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +23,9 @@ public class Reparateur {
 
 	@Column(name = "rep_telephone", length = 20)
 	private String telephone;
+	
+	@OneToMany(mappedBy = "reparateur")
+	private List<Produit> produits;
 
 	public int getId() {
 		return id;
@@ -43,5 +49,13 @@ public class Reparateur {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public List<Produit> getProduits() {
+		return produits;
+	}
+
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
 	}
 }

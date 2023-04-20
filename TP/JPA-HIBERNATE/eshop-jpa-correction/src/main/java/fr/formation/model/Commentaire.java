@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,9 +23,17 @@ public class Commentaire {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "com_id")
 	private int id;
-	
+
 	@Column(name = "com_date", nullable = false)
 	private LocalDateTime date;
+
+	@ManyToOne
+	@JoinColumn(name = "com_client_id")
+	private Client client;
+
+	@ManyToOne
+	@JoinColumn(name = "com_produit_id")
+	private Produit produit;
 
 	public int getId() {
 		return id;
@@ -39,5 +49,21 @@ public class Commentaire {
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
 }

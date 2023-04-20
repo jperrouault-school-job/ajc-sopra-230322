@@ -33,6 +33,10 @@ public class Produit {
 	@JoinColumn(name = "pro_fournisseur_id") // Nom de la clé étrangère
 //	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Fournisseur fournisseur;
+	
+	@ManyToOne
+	@JoinColumn(name = "pro_reparateur_id")
+	private Reparateur reparateur;
 
 	public int getId() {
 		return id;
@@ -80,5 +84,13 @@ public class Produit {
 
 	public void setFournisseur(Fournisseur fournisseur) {
 		this.fournisseur = fournisseur;
+	}
+
+	public Reparateur getReparateur() {
+		return reparateur;
+	}
+
+	public void setReparateur(Reparateur reparateur) {
+		this.reparateur = reparateur;
 	}
 }
