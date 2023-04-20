@@ -3,6 +3,7 @@ package fr.formation;
 import java.util.List;
 
 import fr.formation.model.Administrateur;
+import fr.formation.model.Fournisseur;
 import fr.formation.model.Produit;
 import fr.formation.model.Reparateur;
 import jakarta.persistence.EntityManager;
@@ -45,5 +46,14 @@ public class Application {
 			.createQuery("select a from Administrateur a", Administrateur.class)
 			.getResultList()
 			.forEach(a -> System.out.println(a.getUsername()));
+		
+		
+		List<Fournisseur> fournisseurs = em
+			.createQuery("select f from Fournisseur f", Fournisseur.class)
+			.getResultList();
+		
+		for (Fournisseur f : fournisseurs) {
+			System.out.println(f.getNom() + ", " + f.getProduits().size() + " produit(s).");
+		}
 	}
 }
