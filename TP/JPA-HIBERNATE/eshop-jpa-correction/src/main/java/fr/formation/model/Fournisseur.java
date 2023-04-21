@@ -5,7 +5,9 @@ import java.util.List;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class Fournisseur extends Personne {
 
 	@OneToMany(mappedBy = "fournisseur")
 	private List<Produit> produits;
+	
+	@OneToOne
+	@JoinColumn(name = "fou_adresse_id")
+	private Adresse adresse;
 
 	public String getResponsable() {
 		return responsable;
@@ -33,5 +39,13 @@ public class Fournisseur extends Personne {
 
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 }
