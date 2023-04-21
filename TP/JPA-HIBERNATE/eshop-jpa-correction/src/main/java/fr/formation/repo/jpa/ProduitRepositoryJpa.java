@@ -6,14 +6,10 @@ import java.util.Optional;
 import fr.formation.model.Produit;
 import fr.formation.repo.IProduitRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
-public class ProduitRepositoryJpa implements IProduitRepository {
-
+public class ProduitRepositoryJpa extends AbstractRepositoryJpa implements IProduitRepository {
 	@Override
 	public List<Produit> findAll() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("EShopUnit");
 		EntityManager em = emf.createEntityManager();
 		
 		List<Produit> produits = em
