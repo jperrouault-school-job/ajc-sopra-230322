@@ -2,6 +2,7 @@ package fr.formation;
 
 import java.time.LocalDateTime;
 
+import fr.formation.enumerator.CommandeEtat;
 import fr.formation.model.Achat;
 import fr.formation.model.Client;
 import fr.formation.model.Commande;
@@ -20,7 +21,7 @@ public class ApplicationGenerateurCommande {
 		Client client = em.find(Client.class, 1); // On cherche le client avec l'id #1
 		
 		commande.setDate(LocalDateTime.now());
-		commande.setEtat(0);
+		commande.setEtat(CommandeEtat.ENCOURS);
 		commande.setQuantite(1);
 		commande.setClient(client);
 		

@@ -3,8 +3,11 @@ package fr.formation.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import fr.formation.enumerator.CommandeEtat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +28,9 @@ public class Commande {
 	private LocalDateTime date;
 
 	@Column(name = "cmd_etat", nullable = false)
-	private int etat;
+	@Enumerated(EnumType.ORDINAL) // Sous forme d'entiers
+//	@Enumerated(EnumType.STRING) // Sous forme de String
+	private CommandeEtat etat;
 
 	@Column(name = "cmd_quantite", nullable = false)
 	private int quantite;
@@ -57,11 +62,11 @@ public class Commande {
 		this.date = date;
 	}
 
-	public int getEtat() {
+	public CommandeEtat getEtat() {
 		return etat;
 	}
 
-	public void setEtat(int etat) {
+	public void setEtat(CommandeEtat etat) {
 		this.etat = etat;
 	}
 
