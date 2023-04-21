@@ -1,0 +1,39 @@
+Le client qui s'appelle Albert DUPONT
+> select c from Client c where c.prenom = ?1 and c.nom = ?2
+
+Les produits dont le prix est > 100 euros
+> select p from Produit p where p.prix > ?1
+
+Les produits du fournisseur #2
+> select p from Produit p where p.fournisseur.id = ?1
+
+Le fournisseur #2 avec sa liste de produits chargée
+> select f from Fournisseur f left join fetch f.produits p where f.id = ?1
+
+Les produits du fournisseur Albert
+> select p from Produit p where p.fournisseur.nom = ?1
+
+Le(s) fournisseur(s) qui ont des produits de type 1 (on imagine qu'on a l'attribut "type" dans la classe Produit)
+> select f from Fournisseur f inner join f.produits p where p.type = ?1
+
+Les produits hors stock (stock = 0, on imagine qu'on a l'attribut "stock" dans la classe Produit)
+> select p from Produit p where p.stock = 0
+
+Les clients qui ont commandé un produit qui est hors stock aujourd'hui
+> select c from Client c
+> inner join c.commandes cmd
+> inner join cmd.achats a
+> where a.produit.stock = 0
+
+Les produits dont le prix vendu a été plus faible que le prix du produit
+> select p from Produit p
+> inner join p.achats a
+> where p.prix > a.montant
+
+Compter le nombre de produits du fournisseur #1
+> select count(p) from Produit p where p.fournisseur.id = ?1
+
+Compter le nombre de produits du fournisseur #1 qui ont été achetés
+> select count(distinct p) from Produit p
+> inner join p.achats a
+> where p.fournisseur.id = ?1
