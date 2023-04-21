@@ -22,14 +22,17 @@ public class Application {
 		
 		// Récupération de la liste des produits
 		List<Produit> produits = em
-			.createQuery("select p from Produit p", Produit.class)
+			.createQuery("select p from Produit p left join fetch p.fournisseur", Produit.class)
 			.getResultList();
+		
+		em.close();
 		
 		// Parcours
 		for (Produit p : produits) {
 			System.out.println(p.getNom() + ", fourni par " + p.getFournisseur().getNom());
 		}
 		
+		System.exit(0);
 		
 		// Récupérer la liste des réparateurs
 		List<Reparateur> reparateurs = em
