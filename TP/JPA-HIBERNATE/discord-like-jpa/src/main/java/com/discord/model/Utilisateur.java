@@ -1,10 +1,13 @@
 package com.discord.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +23,9 @@ public class Utilisateur {
 
 	@Column(name = "uti_password", length = 200, nullable = false)
 	private String password;
+	
+	@ManyToMany(mappedBy = "utilisateurs")
+	private List<Salon> salons;
 
 	public int getId() {
 		return id;
