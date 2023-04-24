@@ -8,7 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/discord?createDatabaseIfNotExist=true" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/discord" />
 			<property name="hibernate.connection.driver" value="org.postgresql.Driver" />
 			<property name="hibernate.connection.user" value="postgres" />
 			<property name="hibernate.connection.password" value="root" />
