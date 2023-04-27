@@ -3,7 +3,6 @@ package fr.formation;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.config.AppConfig;
-import fr.formation.musique.Guitariste;
 import fr.formation.musique.IMusicien;
 
 public class Application {
