@@ -7,13 +7,17 @@ import org.springframework.stereotype.Repository;
 
 import fr.formation.model.Produit;
 import fr.formation.repo.IProduitRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Repository
 public class ProduitRepositorySpring implements IProduitRepository {
+	@PersistenceContext // On demande à SPRING l'EntityManager .. c'est SPRING qui gère son ouverture et sa fermeture
+	private EntityManager em;
+	
 	@Override
 	public List<Produit> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return em.createQuery("select p from Produit p", Produit.class).getResultList();
 	}
 
 	@Override

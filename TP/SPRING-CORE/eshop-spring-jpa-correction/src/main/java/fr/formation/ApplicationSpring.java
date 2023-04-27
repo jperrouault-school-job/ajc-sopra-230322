@@ -10,5 +10,7 @@ public class ApplicationSpring {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		IProduitRepository repoProduit = context.getBean(IProduitRepository.class);
+		
+		repoProduit.findAll().forEach(p -> System.out.println(p.getNom()));
 	}
 }
