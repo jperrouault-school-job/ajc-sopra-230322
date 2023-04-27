@@ -16,7 +16,7 @@ public class FournisseurService {
 	public void showFournisseurs() {
 		for (Fournisseur f : repoFournisseur.findAll()) {
 			System.out.println(f.getNom());
-//			System.out.println(f.getProduits().size() + " produits.");
+			System.out.println(f.getProduits().size() + " produits.");
 		}
 	}
 }
