@@ -11,7 +11,9 @@ public class Application {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		IMusicien guitariste = context.getBean("guitariste", IMusicien.class);
+		IMusicien pianiste = context.getBean("pianiste", IMusicien.class);
 		
 		guitariste.jouer();
+		pianiste.jouer();
 	}
 }
