@@ -10,7 +10,7 @@ public class Application {
 		// Créer et charger le contexte de SPRING à partir de la classe de configuration AppConfig
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-//		IMusicien guitariste = context.getBean("guitariste", IMusicien.class);
+		IMusicien guitariste = context.getBean("guitariste", IMusicien.class);
 //		IMusicien guitariste2 = context.getBean("guitariste", IMusicien.class);
 //		
 //		if (guitariste == guitariste2) {
@@ -21,9 +21,9 @@ public class Application {
 //			System.out.println("C PAS PAREIL");
 //		}
 		
-//		IMusicien pianiste = context.getBean("pianiste", IMusicien.class);
-//		
-//		guitariste.jouer();
-//		pianiste.jouer();
+		IMusicien pianiste = context.getBean("pianiste", IMusicien.class);
+		
+		guitariste.jouer();
+		pianiste.jouer();
 	}
 }
