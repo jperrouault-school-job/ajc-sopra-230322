@@ -29,7 +29,7 @@ public class AppConfig {
 	public IMusicien guitariste(IInstrument guitare) {
 		Guitariste guitariste = new Guitariste();
 		
-		guitariste.setInstrument(guitare);
+//		guitariste.setInstrument(guitare);
 		
 		return guitariste;
 	}
