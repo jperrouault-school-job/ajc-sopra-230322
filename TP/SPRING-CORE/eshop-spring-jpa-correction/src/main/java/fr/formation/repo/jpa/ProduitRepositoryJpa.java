@@ -1,0 +1,48 @@
+package fr.formation.repo.jpa;
+
+import java.util.List;
+import java.util.Optional;
+
+import fr.formation.model.Produit;
+import fr.formation.repo.IProduitRepository;
+import jakarta.persistence.EntityManager;
+
+public class ProduitRepositoryJpa extends AbstractRepositoryJpa implements IProduitRepository {
+	@Override
+	public List<Produit> findAll() {
+		EntityManager em = emf.createEntityManager();
+		
+		List<Produit> produits = em
+			.createQuery("select p from Produit p", Produit.class)
+			.getResultList();
+		
+		em.close();
+		
+		return produits;
+	}
+
+	@Override
+	public Optional<Produit> findById(Integer id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Produit save(Produit entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Produit> findByPrixBetween(float a, float b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
