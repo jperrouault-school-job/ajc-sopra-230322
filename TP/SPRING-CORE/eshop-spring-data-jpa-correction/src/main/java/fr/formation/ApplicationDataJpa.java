@@ -32,5 +32,7 @@ public class ApplicationDataJpa {
 			u -> System.out.println("Adresse trouvée !"),
 			() -> System.out.println("Adresse pas trouvée !")
 		);
+		
+		context.close();
 	}
 }
