@@ -9,6 +9,7 @@ import fr.formation.model.Fournisseur;
 import fr.formation.repo.IAdresseRepository;
 import fr.formation.repo.IClientRepository;
 import fr.formation.repo.IFournisseurRepository;
+import fr.formation.repo.IProduitRepository;
 import fr.formation.repo.IUtilisateurRepository;
 
 @Component
@@ -24,6 +25,9 @@ public class ApplicationDataJpa {
 	
 	@Autowired
 	private IAdresseRepository repoAdresse;
+	
+	@Autowired
+	private IProduitRepository repoProduit;
 	
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -53,5 +57,7 @@ public class ApplicationDataJpa {
 		for (Fournisseur f : repoFournisseur.findAllWithProduits()) {
 			System.out.println(f.getNom() + ", " + f.getProduits().size() + " produit(s).");
 		}
+		
+		repoProduit.findByReference("REF0");
 	}
 }
