@@ -1,24 +1,41 @@
 package fr.formation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import fr.formation.config.AppConfig;
+import fr.formation.model.Fournisseur;
 import fr.formation.repo.IAdresseRepository;
 import fr.formation.repo.IClientRepository;
 import fr.formation.repo.IFournisseurRepository;
 import fr.formation.repo.IUtilisateurRepository;
 
+@Component
 public class ApplicationDataJpa {
+	@Autowired
+	private IFournisseurRepository repoFournisseur;
+	
+	@Autowired
+	private IClientRepository repoClient;
+	
+	@Autowired
+	private IUtilisateurRepository repoUtilisateur;
+	
+	@Autowired
+	private IAdresseRepository repoAdresse;
+	
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		// Récupère les Repositories
-		IFournisseurRepository repoFournisseur = context.getBean(IFournisseurRepository.class);
-		IClientRepository repoClient = context.getBean(IClientRepository.class);
-		IUtilisateurRepository repoUtilisateur = context.getBean(IUtilisateurRepository.class);
-		IAdresseRepository repoAdresse = context.getBean(IAdresseRepository.class);
+		ApplicationDataJpa app = context.getBean(ApplicationDataJpa.class);
+		app.run();
+//		context.getBean(ApplicationDataJpa.class).run();
 		
-		
+		context.close();
+	}
+	
+	public void run() {
 		repoClient.findAllByEmailEndingWith("@gmail.com").forEach(c -> System.out.println(c.getEmail()));
 		
 		repoFournisseur.findByResponsable("Albert").forEach(f -> System.out.println(f.getResponsable()));
@@ -33,6 +50,8 @@ public class ApplicationDataJpa {
 			() -> System.out.println("Adresse pas trouvée !")
 		);
 		
-		context.close();
+		for (Fournisseur f : repoFournisseur.findAllWithProduits()) {
+			System.out.println(f.getNom() + ", " + f.getProduits().size() + " produit(s).");
+		}
 	}
 }
