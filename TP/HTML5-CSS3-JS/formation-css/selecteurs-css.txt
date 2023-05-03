@@ -1,0 +1,32 @@
+Les classes « produits » et « clients »
+.produits, .clients
+
+Les tableaux dont la classe est « produits »
+table.produits
+
+Les paragraphes dans la div (tous niveaux) qui a l’identifiant « accueil »
+div#accueil p
+
+Les paragraphes dans la div (premier niveau) qui a l’identifiant « contact »
+div#contact > p
+
+Les inputs de type « text » dans tous les formulaires
+form input[type="text"]
+
+Le label qui est juste après un input de type « checkbox », dans tous les formulaires
+form input[type="checkbox"] + label
+
+Le label qui est juste après un input de type « checkbox » qui a la classe « special »
+input.special[type="checkbox"] + label
+
+Les liens dans l’état « survole »
+a:hover
+
+Les inputs de type « text » lorsque la zone de saisie est activée (le curseur est dans l’input)
+input[type="text"]:focus
+
+Les paragraphes qui ont les classes « rouge » et « arrondi » (combinées)
+p.rouge.arrondi
+
+Les paragraphes qui ont la classe « rouge » sans la classe « arrondi » et qui n’ont pas d’enfant
+p.rouge:not(.arrondi):empty
