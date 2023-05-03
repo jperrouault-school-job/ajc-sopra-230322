@@ -1,0 +1,38 @@
+p {
+    background: red;
+}
+
+span {
+    display: inline-block;
+    background: blue;
+    width: 400px;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    background: orange;
+}
+
+
+.blue {
+    position: relative;
+    top: 50px;
+    width: 500px;
+    height: 200px;
+    background-color: blue;
+}
+
+.red {
+    width: 250px;
+    height: 100px;
+    background-color: red;
+}
+
+.orange {
+    position: sticky;
+    top: 50px;
+    width: 100px;
+    height: 50px;
+    background-color: orange;
+}
