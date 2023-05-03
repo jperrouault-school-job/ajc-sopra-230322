@@ -1,0 +1,130 @@
+:root {
+    font-size: 14px;
+}
+
+body {
+    background-color: #F0F0F0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: hsl(226 34% 24%);
+}
+
+header {
+    background: white;
+    min-height: 100px;
+}
+
+header, section {
+    padding: 20px;
+}
+
+nav {
+    width: 80px;
+    height: 100vh;
+    background-color: #F9F9F9;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    text-align: center;
+}
+
+nav a {
+    color: #A9ABAC;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: hsl(153 48% 49%);
+}
+
+section > p > strong {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+
+
+form label {
+    display: inline-block;
+    width: 200px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: hsl(232 14% 68%)
+}
+
+form > div {
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    border-radius: 4px;
+    background-color: hsl(153 48% 49%);
+    color: rgb(255, 255, 255);
+    padding: 8px 22px;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    font-family: 'Montserrat', sans-serif;
+    width: 300px;
+    border-radius: 4px;
+    background: white;
+    color: #363636;
+    border: solid 1px hsl(0 0% 86%);
+    padding: calc(0.5em - 1px) calc(0.75em - 1px);
+    box-sizing: border-box;
+    transition: all 1.25s ease-in-out;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="date"]::placeholder,
+select::placeholder,
+textarea::placeholder {
+    color: hsl(0 0% 50%);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="date"]:hover,
+select:hover,
+textarea:hover {
+    border-color: #B5B5B5;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    box-shadow: -1px 3px 10px 0 rgb(0 0 0 / 6%);
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="date"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline-offset: 3px;
+    outline-width: 1px;
+    outline-style: dashed;
+    outline-color: hsl(0 0% 85%);
+}
