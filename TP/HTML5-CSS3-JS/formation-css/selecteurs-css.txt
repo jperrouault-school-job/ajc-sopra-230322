@@ -27,6 +27,7 @@ input[type="text"]:focus
 
 Les paragraphes qui ont les classes « rouge » et « arrondi » (combinées)
 p.rouge.arrondi
+p:is(.rouge):is(.arrondi)
 
 Les paragraphes qui ont la classe « rouge » sans la classe « arrondi » et qui n’ont pas d’enfant
 p.rouge:not(.arrondi):empty
