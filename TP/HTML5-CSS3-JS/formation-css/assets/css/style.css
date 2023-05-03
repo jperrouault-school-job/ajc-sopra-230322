@@ -1,0 +1,36 @@
+.paragraphe-rouge {
+    color: red;
+    border: solid 10px green;
+    font-size: 40px;
+    font-weight: bold;
+    width: 350px;
+}
+
+
+div ~ p {
+    color: blue;
+}
+
+
+[type="email"] {
+    color: red;
+}
+
+
+div.btn {
+    background-color: red;
+}
+
+div.btn:hover {
+    background-color: cadetblue;
+}
+
+.paragraphe-rouge:has(.paragraphe-vert) {
+    background-color: red;
+}
+
+
+div.btn.btn-small {
+    height: 20px;
+    width: 150px;
+}
