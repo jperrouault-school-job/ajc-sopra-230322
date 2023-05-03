@@ -25,7 +25,7 @@
   </header>
 
   <section>
-    <form method="POST">
+    <form method="GET">
       <div>
         <label>Genre</label>
 
@@ -60,8 +60,8 @@
       </div>
 
       <div>
-        <label>Type de client</label>
-        <select name="type">
+        <label for="type">Type de client</label>
+        <select name="type" id="type">
           <option value="0">Pas encore client</option>
           <option value="1">Client</option>
           <option value="2">Grand Client</option>
