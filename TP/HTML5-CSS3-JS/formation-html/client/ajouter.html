@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un nouveau client</title>
+  <base href="/formation-html/">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="accueil.html">Accueil</a>
+      </li>
+
+      <li>
+        <a href="client/liste.html">Liste des clients</a>
+      </li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Ajouter un nouveau client</h1>
+  </header>
+
+  <section>
+    <form method="POST">
+      <div>
+        <label>Genre</label>
+
+        <label>
+          Homme
+          <input type="radio" name="genre" value="0" id="homme" />
+        </label>
+        
+
+        <label for="femme">Femme</label>
+        <input type="radio" name="genre" value="1" id="femme" />
+      </div>
+
+      <div>
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" placeholder="Saisir le nom" required />
+      </div>
+
+      <div>
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" id="prenom" placeholder="Saisir le prénom" required />
+      </div>
+
+      <div>
+        <label for="email">Adresse e-mail</label>
+        <input type="email" name="email" id="email" placeholder="Saisir l'adresse mail" required />
+      </div>
+
+      <div>
+        <label for="dateNaissance">Date de naissance</label>
+        <input type="date" name="dateNaissance" id="dateNaissance" />
+      </div>
+
+      <div>
+        <label>Type de client</label>
+        <select name="type">
+          <option value="0">Pas encore client</option>
+          <option value="1">Client</option>
+          <option value="2">Grand Client</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea name="description" cols="20" rows="5"></textarea>
+      </div>
+
+      <div>
+        <input type="submit" value="Ajouter" />
+      </div>
+    </form>
+  </section>
+</body>
+</html>
