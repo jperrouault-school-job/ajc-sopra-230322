@@ -164,3 +164,14 @@ table {
 table thead th {
     text-align: left;
 }
+
+
+@media screen and (max-width: 800px) {
+    :root {
+        font-size: 10px;
+    }
+
+    body {
+        grid-template-columns: 0px auto;
+    }
+}
