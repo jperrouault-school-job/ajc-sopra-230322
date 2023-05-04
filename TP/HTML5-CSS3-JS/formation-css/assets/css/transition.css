@@ -1,0 +1,16 @@
+p {
+    background: red;
+    height: 20px;
+    /* transition: background 2s, height 2s; */
+    transition: all 2s cubic-bezier(0,1.6,1,-0.93);
+    border-radius: 20px;
+}
+
+p:hover {
+    background: green;
+    height: 100px;
+}
+
+p:active {
+    background: blue;
+}
