@@ -3,9 +3,34 @@
 }
 
 body {
+    display: grid;
     background-color: #F0F0F0;
     margin: 0;
+    grid-template-columns: 80px auto;
+    grid-template-rows: 140px auto 50px;
+    grid-template-areas:
+        "menu header"
+        "menu content"
+        "footer footer";
 }
+
+nav {
+    grid-area: menu;
+}
+
+header {
+    grid-area: header;
+}
+
+section {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+
 
 h1 {
     font-size: 1.5rem;
@@ -14,7 +39,6 @@ h1 {
 
 header {
     background: white;
-    min-height: 100px;
 }
 
 header, section {
@@ -22,8 +46,6 @@ header, section {
 }
 
 nav {
-    width: 80px;
-    height: 100vh;
     background-color: #F9F9F9;
 }
 
