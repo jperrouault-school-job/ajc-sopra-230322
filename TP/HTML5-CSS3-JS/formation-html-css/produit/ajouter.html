@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un produit</title>
+
+  <base href="/formation-html-css/">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li>
+        <a href="accueil.html">A</a>
+      </li>
+
+      <li>
+        <a href="client/liste.html">C</a>
+      </li>
+
+      <li>
+        <a href="produit/liste.html">P</a>
+      </li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Ajouter un produit</h1>
+  </header>
+
+  <section>
+    <form method="POST">
+      <div>
+        <label>Nom</label>
+        <input type="text" name="nom" placeholder="Saisir le nom" required>
+      </div>
+
+      <div>
+        <label>Prix</label>
+        <input type="number" name="prix" placeholder="Saisir le prix" step="0.01" required>
+      </div>
+
+      <div>
+        <label>Modèle</label>
+        <input type="text" name="modele">
+      </div>
+
+      <div>
+        <label>Référence</label>
+        <input type="text" name="reference">
+      </div>
+
+      <div>
+        <label>Fournisseur</label>
+        <select name="fournisseurId" required>
+          <option value="">-- Sélectionner le fournisseur --</option>
+          <option value="1">AMAZON</option>
+          <option value="2">GOPRO</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="submit" value="Ajouter">
+      </div>
+    </form>
+  </section>
+
+</body>
+</html>

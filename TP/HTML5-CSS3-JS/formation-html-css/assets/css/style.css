@@ -79,6 +79,7 @@ input[type="submit"] {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="date"],
 select,
@@ -91,11 +92,11 @@ textarea {
     border: solid 1px hsl(0 0% 86%);
     padding: calc(0.5em - 1px) calc(0.75em - 1px);
     box-sizing: border-box;
-    transition: all 1.25s ease-in-out;
 }
 
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
+input[type="number"]::placeholder,
 input[type="date"]::placeholder,
 select::placeholder,
 textarea::placeholder {
@@ -103,6 +104,7 @@ textarea::placeholder {
 }
 
 input[type="text"]:hover,
+input[type="number"]:hover,
 input[type="email"]:hover,
 input[type="date"]:hover,
 select:hover,
@@ -111,6 +113,7 @@ textarea:hover {
 }
 
 input[type="text"]:focus,
+input[type="number"]:focus,
 input[type="email"]:focus,
 input[type="date"]:focus,
 select:focus,
@@ -119,6 +122,7 @@ textarea:focus {
 }
 
 input[type="text"]:focus-visible,
+input[type="number"]:focus-visible,
 input[type="email"]:focus-visible,
 input[type="date"]:focus-visible,
 select:focus-visible,
@@ -127,4 +131,12 @@ textarea:focus-visible {
     outline-width: 1px;
     outline-style: dashed;
     outline-color: hsl(0 0% 85%);
+}
+
+table {
+    width: 100%;
+}
+
+table thead th {
+    text-align: left;
 }
