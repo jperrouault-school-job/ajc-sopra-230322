@@ -184,4 +184,8 @@ table thead th {
     body {
         grid-template-columns: 0px auto;
     }
+
+    nav {
+        display: none;
+    }
 }
