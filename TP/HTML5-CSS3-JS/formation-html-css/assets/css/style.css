@@ -7,7 +7,7 @@ body {
     background-color: #F0F0F0;
     margin: 0;
     grid-template-columns: 80px auto;
-    grid-template-rows: 140px auto 50px;
+    grid-template-rows: minmax(140px, auto) auto 50px;
     grid-template-areas:
         "menu header"
         "menu content"
