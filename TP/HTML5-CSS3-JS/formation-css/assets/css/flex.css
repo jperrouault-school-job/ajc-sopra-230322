@@ -1,0 +1,21 @@
+.blue {
+    display: flex;
+    background-color: blue;
+    width: 50vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.orange {
+    background-color: orange;
+    width: 150px;
+    height: 150px;
+}
+
+.red {
+    background-color: red;
+    width: 150px;
+    height: 150px;
+    /* align-self: self-start; */
+}
