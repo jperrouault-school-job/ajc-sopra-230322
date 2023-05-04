@@ -1,0 +1,15 @@
+@media screen and (max-width: 600px) {
+    p {
+        background-color: red;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media print {
+    p {
+        background: blue;
+    }
+}
