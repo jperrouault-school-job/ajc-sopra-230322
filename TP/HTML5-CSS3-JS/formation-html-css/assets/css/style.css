@@ -56,16 +56,26 @@ nav ul {
 }
 
 nav ul li {
+    display: flex;
+    height: 80px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease-in-out;
 }
 
 nav a {
     color: #A9ABAC;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
+    font-size: 24px;
 }
 
-nav a:hover {
+nav ul li:hover {
+    background-color: #333;
+}
+
+nav ul li:hover a {
     color: hsl(153 48% 49%);
 }
 
