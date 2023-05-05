@@ -12,3 +12,6 @@ class Todo {
     return (this.completed) ? "Oui" : "Non";
   }
 }
+
+// On exporte la classe Todo
+export default Todo;
