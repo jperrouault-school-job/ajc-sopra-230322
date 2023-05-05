@@ -16,4 +16,5 @@ fetch('https://jsonplaceholder.typicode.com/albums')
   }); // Dès que la transformation JSON sera fini
 
 
+
 console.log("TERMINE ?");
