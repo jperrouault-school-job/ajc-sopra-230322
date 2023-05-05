@@ -17,6 +17,17 @@ document.querySelector('body').append(btn);
 // On va écouter un évènement en particulier, click
 btn.addEventListener('click', (evt) => {
   console.log(evt);
-  alert("L'utilisateur a cliqué ici !!!");
+  // alert("L'utilisateur a cliqué ici !!!");
+
+  const usernameInput = document.querySelector('input[name="username"]');
+  const username = usernameInput.value;
+
+  // alert(`La valeur est = ${ username }`);
+
+  const nouveauParagraphe = document.createElement('p');
+
+  nouveauParagraphe.innerHTML = `La valeur est <strong>${ username }</strong>`;
+
+  document.querySelector('body').append(nouveauParagraphe);
 });
 
