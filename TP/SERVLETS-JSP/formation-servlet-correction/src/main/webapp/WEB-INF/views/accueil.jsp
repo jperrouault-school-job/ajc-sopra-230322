@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 	<h1>Hello world!</h1>
