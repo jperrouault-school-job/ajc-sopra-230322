@@ -23,7 +23,16 @@ public class HomeServlet extends HttpServlet { // Hérite de HttpServlet => Serl
 		// Pour ajouter des informations DANS la session
 		session.setAttribute("utilisateur", username);
 
-		resp.getWriter().println("Hello " + username + "!");
+//		resp.getWriter().println("Hello " + username + "!");
 		
+		// Pour transférer des informations de la Servlet (Controller) vers la Vue JSP
+		// > On va utiliser le scope request
+		
+		req.setAttribute("unAttribut", "une valeur");
+		
+		// Délégation de la requête vers la vue JSP
+		this.getServletContext()
+			.getRequestDispatcher("/WEB-INF/views/accueil.jsp")
+			.forward(req, resp);
 	}
 }

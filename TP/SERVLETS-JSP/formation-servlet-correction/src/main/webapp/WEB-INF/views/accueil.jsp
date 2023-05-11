@@ -8,7 +8,7 @@
 <body>
 	<h1>Hello world!</h1>
 	
-	<p>${ param.username }</p>
+	<p>${ unAttribut }</p>
 	
 	<!-- Exemple commentaire HTML -->
 	
