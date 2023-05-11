@@ -8,7 +8,8 @@
 <body>
 	<h1>Hello world!</h1>
 	
-	<p>${ unAttribut }</p>
+	<p>Bonjour ${ userRequest }</p>
+	<p>Bonjour ${ userSession }</p>
 	
 	<!-- Exemple commentaire HTML -->
 	

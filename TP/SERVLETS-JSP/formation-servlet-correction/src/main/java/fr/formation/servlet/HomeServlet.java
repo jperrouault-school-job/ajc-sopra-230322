@@ -25,6 +25,13 @@ public class HomeServlet extends HttpServlet { // Hérite de HttpServlet => Serl
 
 //		resp.getWriter().println("Hello " + username + "!");
 		
+		
+		// Extraire de la session l'attribut userSession
+		String leUser = (String)session.getAttribute("userSession");
+		
+		// Donner au scope request le Username
+		req.setAttribute("userRequest", leUser);
+		
 		// Pour transférer des informations de la Servlet (Controller) vers la Vue JSP
 		// > On va utiliser le scope request
 		
