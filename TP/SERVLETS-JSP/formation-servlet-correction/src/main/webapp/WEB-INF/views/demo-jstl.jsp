@@ -11,12 +11,23 @@
 	<h1>Démo JSTL</h1>
 	
 	<table>
+		<!-- Traduction : pour un entier i = 0, tant que i < 7, i++ -->
 	  <c:forEach var="i" begin="0" end="7" step="1">
 	    <tr>
 	      <td>${ i }</td>
 	      <td>${ i * i * i }</td>
 	    </tr>
 	  </c:forEach>
+	</table>
+	
+	
+	<table>
+		<!-- Traduction : pour chaque prenom dans prenoms -->
+		<c:forEach var="prenom" items="${ prenoms }">
+			<tr>
+				<td>${ prenom }</td>
+			</tr>
+		</c:forEach>
 	</table>
 	
 </body>
