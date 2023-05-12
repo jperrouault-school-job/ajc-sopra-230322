@@ -11,6 +11,8 @@
 <body>
 	<h1>Hello world!</h1>
 	
+	<p>${ attributApp }</p>
+	
 	<c:if test="${ userSession != null }">
 		<p>Bonjour ${ userRequest }</p>
 		<p>Bonjour ${ userSession }</p>
