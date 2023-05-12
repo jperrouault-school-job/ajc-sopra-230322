@@ -23,6 +23,9 @@ public class DemoJstlServlet extends HttpServlet {
 		// On donne la liste de prénoms au scope Request
 		req.setAttribute("prenoms", prenoms);
 		
+		// On ajoute un petit message
+		req.setAttribute("message", "Un exemple de message");
+		
 		this.getServletContext()
 			.getRequestDispatcher("/WEB-INF/views/demo-jstl.jsp")
 			.forward(req, resp);
