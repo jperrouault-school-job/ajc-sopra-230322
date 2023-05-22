@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>DEMONSTRATION</h1>
+	<h1>DEMONSTRATION ${ variable }</h1>
 	
 	<form method="POST">
 		<input type="text" name="username" />
