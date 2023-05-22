@@ -10,14 +10,15 @@ public class DemoController {
 //	@RequestMapping("/demo")
 	@GetMapping("/demo")
 	public String demonstration() {
-		return "/WEB-INF/demo.jsp";
+//		return "/WEB-INF/demo.jsp";
+		return "demo";
 	}
 	
 	@PostMapping("/demo")
 	public String postDemo() {
 		System.out.println("POST passé ici ..");
 		
-		return "/WEB-INF/demo.jsp";
+		return "demo";
 	}
 	
 }
