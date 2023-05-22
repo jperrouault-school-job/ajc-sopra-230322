@@ -12,12 +12,12 @@
 	<form method="POST">
 		<div>
 			<label for="nom">Nom</label>
-			<input type="text" id="nom" name="nom" />
+			<input type="text" id="nom" name="nom" value="${ produit.nom }" />
 		</div>
 		
 		<div>
 			<label>Prix</label>
-			<input type="number" step="0.1" name="prix" />
+			<input type="number" step="0.1" name="prix" value="${ produit.prix }" required />
 		</div>
 		
 		<div>

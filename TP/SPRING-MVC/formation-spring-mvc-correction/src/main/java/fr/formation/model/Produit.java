@@ -1,8 +1,15 @@
 package fr.formation.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 public class Produit {
 	private int id;
+	
+	@NotBlank
 	private String nom;
+	
+	@Positive
 	private float prix;
 
 	public int getId() {

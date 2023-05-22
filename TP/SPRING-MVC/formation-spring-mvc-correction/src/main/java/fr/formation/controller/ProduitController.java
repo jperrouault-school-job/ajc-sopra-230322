@@ -2,12 +2,15 @@ package fr.formation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.model.Produit;
+import jakarta.validation.Valid;
 
 @Controller
 public class ProduitController {
@@ -31,8 +34,15 @@ public class ProduitController {
 	}
 	
 	@PostMapping("/produit/ajouter")
-	public String postAdd(Produit produit) {
+	public String postAdd(@Valid @ModelAttribute Produit produit, BindingResult result) {
 		System.out.println(produit.getNom());
+		
+//		if (produit.getPrix() <= 0) { // Dans ce cas, le prix est pas bon
+//			return "form-produit";
+//		}
+		if (result.hasErrors()) {
+			return "form-produit";
+		}
 		
 		return "redirect:/produit?id=1";
 	}
