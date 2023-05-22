@@ -8,7 +8,7 @@ public class DemoController {
 
 	@RequestMapping("/demo")
 	public String demonstration() {
-		return "demo";
+		return "/WEB-INF/demo.jsp";
 	}
 	
 }
