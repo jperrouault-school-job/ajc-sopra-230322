@@ -6,10 +6,10 @@ import jakarta.validation.constraints.Positive;
 public class Produit {
 	private int id;
 	
-	@NotBlank
+	@NotBlank(message = "Le nom doit être saisi")
 	private String nom;
 	
-	@Positive
+	@Positive(message = "Le prix doit être positif")
 	private float prix;
 
 	public int getId() {

@@ -13,11 +13,13 @@
 		<div>
 			<label for="nom">Nom</label>
 			<input type="text" id="nom" name="nom" value="${ produit.nom }" />
+			<div>${ erreurs.getFieldError("nom").defaultMessage }</div>
 		</div>
 		
 		<div>
 			<label>Prix</label>
 			<input type="number" step="0.1" name="prix" value="${ produit.prix }" required />
+			<div>${ erreurs.getFieldError("prix").defaultMessage }</div>
 		</div>
 		
 		<div>

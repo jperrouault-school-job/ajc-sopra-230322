@@ -34,13 +34,17 @@ public class ProduitController {
 	}
 	
 	@PostMapping("/produit/ajouter")
-	public String postAdd(@Valid @ModelAttribute Produit produit, BindingResult result) {
+	// @Valid permet de demander à SPRING de valider l'instance Produit reçue
+	// BindingResult qui suit permet de récupérer toutes les erreurs de validation
+	public String postAdd(@Valid @ModelAttribute Produit produit, BindingResult result, Model model) {
 		System.out.println(produit.getNom());
 		
 //		if (produit.getPrix() <= 0) { // Dans ce cas, le prix est pas bon
 //			return "form-produit";
 //		}
 		if (result.hasErrors()) {
+			// On injecte la liste des erreurs liés à la validation
+			model.addAttribute("erreurs", result);
 			return "form-produit";
 		}
 		
