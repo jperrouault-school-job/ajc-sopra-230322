@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "utilisateur")
@@ -24,9 +25,11 @@ public class Utilisateur {
 	private int id;
 	
 	@Column(name = "uti_username", length = 50, nullable = false)
+	@NotBlank(message = "Le nom d'utilisateur est forcément obligatoire")
 	private String username;
 	
 	@Column(name = "uti_password", length = 200, nullable = false)
+	@NotBlank(message = "Un mot de passe doit être saisi")
 	private String password;
 	
 	@ManyToMany
