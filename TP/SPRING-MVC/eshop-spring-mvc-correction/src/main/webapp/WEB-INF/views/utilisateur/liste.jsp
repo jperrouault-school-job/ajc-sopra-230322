@@ -25,7 +25,10 @@
 				<c:forEach var="utilisateur" items="${ utilisateurs }">
 					<tr>
 						<td>${ utilisateur.username }</td>
-						<td>BOUTONS A VENIR</td>
+						<td>
+							<a href="utilisateur/modifier/${ utilisateur.id }" class="btn btn-outline-warning">Modifier</a>
+							<a href="utilisateur/supprimer/${ utilisateur.id }" class="btn btn-outline-danger">Supprimer</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

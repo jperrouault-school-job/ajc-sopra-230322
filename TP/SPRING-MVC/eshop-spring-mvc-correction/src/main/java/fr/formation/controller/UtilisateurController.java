@@ -6,9 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.formation.exception.UtilisateurNotFoundException;
 import fr.formation.model.Utilisateur;
 import fr.formation.repo.IUtilisateurRepository;
 import jakarta.validation.Valid;
@@ -31,7 +33,7 @@ public class UtilisateurController {
 		return "utilisateur/form";
 	}
 	
-	@PostMapping("/ajouter")
+	@PostMapping({ "/ajouter", "/modifier/{id}" })
 	public String add(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("erreurs", result);
@@ -39,6 +41,22 @@ public class UtilisateurController {
 		}
 		
 		this.repoUtilisateur.save(utilisateur);
+		
+		return "redirect:/utilisateur";
+	}
+	
+	@GetMapping("/modifier/{id}")
+	public String edit(@PathVariable int id, Model model) {
+		Utilisateur utilisateur = this.repoUtilisateur.findById(id).orElseThrow(UtilisateurNotFoundException::new);
+		
+		model.addAttribute("utilisateur", utilisateur);
+		
+		return "utilisateur/form";
+	}
+	
+	@GetMapping("/supprimer/{id}")
+	public String deleteById(@PathVariable int id) {
+		this.repoUtilisateur.deleteById(id);
 		
 		return "redirect:/utilisateur";
 	}
