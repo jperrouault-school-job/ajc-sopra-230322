@@ -30,7 +30,7 @@ public class FournisseurController {
 		return "fournisseur/form";
 	}
 	
-	@PostMapping("/fournisseur/ajouter")
+	@PostMapping({ "/fournisseur/ajouter", "/fournisseur/modifier/{id}" })
 	public String add(@Valid Fournisseur fournisseur, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("erreurs", result);
@@ -52,20 +52,20 @@ public class FournisseurController {
 		return "fournisseur/form";
 	}
 	
-	@PostMapping("/fournisseur/modifier/{id}")
-	public String edit(@Valid Fournisseur fournisseur, BindingResult result, Model model) {
-		System.out.println(fournisseur.getId());
-		if (result.hasErrors()) {
-			model.addAttribute("erreurs", result);
-			return "fournisseur/form";
-		}
-		
-//		fournisseur.setId(id); // Plus nécessaire depuis SPRING 6
-		
-		this.repoFournisseur.save(fournisseur);
-		
-		return "redirect:/fournisseur";
-	}
+//	@PostMapping("/fournisseur/modifier/{id}")
+//	public String edit(@Valid Fournisseur fournisseur, BindingResult result, Model model) {
+//		System.out.println(fournisseur.getId());
+//		if (result.hasErrors()) {
+//			model.addAttribute("erreurs", result);
+//			return "fournisseur/form";
+//		}
+//		
+////		fournisseur.setId(id); // Plus nécessaire depuis SPRING 6
+//		
+//		this.repoFournisseur.save(fournisseur);
+//		
+//		return "redirect:/fournisseur";
+//	}
 	
 	
 	// /fournisseur/supprimer?id=4		-> Paramètre de requête, donc @RequestParam
