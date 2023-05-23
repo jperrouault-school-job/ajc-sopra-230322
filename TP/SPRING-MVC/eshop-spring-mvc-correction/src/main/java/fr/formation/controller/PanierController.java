@@ -14,7 +14,7 @@ import fr.formation.model.Produit;
 import fr.formation.repo.IProduitRepository;
 import jakarta.servlet.http.HttpSession;
 
-//@Controller
+@Controller
 @RequestMapping("/panier")
 public class PanierController {
 	@Autowired
@@ -27,24 +27,24 @@ public class PanierController {
 	
 	@GetMapping("/ajouter/{id}")
 	public String add(@PathVariable int id, HttpSession session) {
-		List<Produit> produits = (List<Produit>)session.getAttribute("panier");
+		List<Produit> panier = (List<Produit>)session.getAttribute("panier");
 		
-		if (produits == null) {
-			produits = new ArrayList<>();
-			session.setAttribute("panier", produits);
+		if (panier == null) {
+			panier = new ArrayList<>();
+			session.setAttribute("panier", panier);
 		}
 		
-		produits.add(this.repoProduit.findById(id).orElseThrow(ProduitNotFoundException::new));
+		panier.add(this.repoProduit.findById(id).orElseThrow(ProduitNotFoundException::new));
 		
 		return "redirect:/panier";
 	}
 	
 	@GetMapping("/supprimer/{id}")
 	public String deleteById(@PathVariable int id, HttpSession session) {
-		List<Produit> produits = (List<Produit>)session.getAttribute("panier");
+		List<Produit> panier = (List<Produit>)session.getAttribute("panier");
 		
-		if (produits != null) {
-			produits.removeIf(p -> p.getId() == id);
+		if (panier != null) {
+			panier.removeIf(p -> p.getId() == id);
 		}
 		
 		return "redirect:/panier";

@@ -11,7 +11,7 @@ import fr.formation.exception.ProduitNotFoundException;
 import fr.formation.repo.IProduitRepository;
 import fr.formation.session.PanierSession;
 
-@Controller
+//@Controller
 @RequestMapping("/panier")
 public class PanierV2Controller {
 	@Autowired
