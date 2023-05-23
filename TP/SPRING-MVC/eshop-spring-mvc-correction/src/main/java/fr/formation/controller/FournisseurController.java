@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.formation.model.Fournisseur;
@@ -36,6 +37,21 @@ public class FournisseurController {
 		}
 		
 		this.repoFournisseur.save(fournisseur);
+		
+		return "redirect:/fournisseur";
+	}
+	
+	// /fournisseur/supprimer?id=4		-> Paramètre de requête, donc @RequestParam
+	// /fournisseur/supprimer/4			-> Variable de chemin, donc @PathVariable
+	@GetMapping("/fournisseur/supprimer/{id}")
+	public String deleteById(@PathVariable int id) {
+		try {
+			this.repoFournisseur.deleteById(id);
+		}
+		
+		catch (Exception ex) {
+			return "redirect:/fournisseur?erreursup";
+		}
 		
 		return "redirect:/fournisseur";
 	}

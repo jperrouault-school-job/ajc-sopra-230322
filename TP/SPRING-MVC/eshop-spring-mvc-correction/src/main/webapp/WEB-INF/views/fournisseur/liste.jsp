@@ -13,6 +13,12 @@
 		
 		<a href="fournisseur/ajouter" class="btn btn-success">Créer</a>
 		
+		<c:if test="${ param.erreursup != null }">
+			<div class="alert alert-danger">
+				La suppression n'a pas fonctionné.
+			</div>
+		</c:if>
+		
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -27,7 +33,9 @@
 					<tr>
 						<td>${ fournisseur.nom }</td>
 						<td>${ fournisseur.responsable }</td>
-						<td>BOUTONS A VENIR</td>
+						<td>
+							<a href="fournisseur/supprimer/${ fournisseur.id }" class="btn btn-outline-danger">Supprimer</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
