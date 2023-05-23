@@ -9,7 +9,8 @@ import org.springframework.web.context.annotation.SessionScope;
 import fr.formation.model.Produit;
 
 @Component("panier")
-@SessionScope
+@SessionScope // Demander à SPRING de créer une instance par session HTTP différente
+//@RequestScope // Demander à SPRING de créer une instance par requête HTTP
 public class PanierSession {
 	private List<Produit> produits = new ArrayList<>();
 

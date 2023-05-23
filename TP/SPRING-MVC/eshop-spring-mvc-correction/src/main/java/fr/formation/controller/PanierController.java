@@ -14,7 +14,7 @@ import fr.formation.model.Produit;
 import fr.formation.repo.IProduitRepository;
 import jakarta.servlet.http.HttpSession;
 
-@Controller
+//@Controller
 @RequestMapping("/panier")
 public class PanierController {
 	@Autowired
