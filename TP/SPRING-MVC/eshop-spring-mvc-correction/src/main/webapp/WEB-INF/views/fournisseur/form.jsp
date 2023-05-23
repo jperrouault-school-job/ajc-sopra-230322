@@ -9,7 +9,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Ajouter un fournisseur</h1>
+		<h1>
+			<c:if test="${ fournisseur == null || fournisseur.id == 0 }">Ajouter un fournisseur</c:if>
+			<c:if test="${ fournisseur != null && fournisseur.id != 0 }">Modifier un fournisseur</c:if>
+		</h1>
 		
 		<c:if test="${ erreurs.hasErrors() }">
 			<div class="alert alert-danger">
