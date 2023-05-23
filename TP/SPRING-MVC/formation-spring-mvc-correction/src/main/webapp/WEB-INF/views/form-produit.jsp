@@ -18,7 +18,7 @@
 		
 		<div>
 			<label>Prix</label>
-			<input type="number" step="0.1" name="prix" value="${ produit.prix }" required />
+			<input type="number" step="0.1" name="prix" value="${ produit.prix }"  />
 			<div>${ erreurs.getFieldError("prix").defaultMessage }</div>
 		</div>
 		
