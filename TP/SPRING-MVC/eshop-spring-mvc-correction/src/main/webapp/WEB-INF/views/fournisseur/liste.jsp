@@ -34,6 +34,7 @@
 						<td>${ fournisseur.nom }</td>
 						<td>${ fournisseur.responsable }</td>
 						<td>
+							<a href="fournisseur/modifier/${ fournisseur.id }" class="btn btn-outline-warning">Modifier</a>
 							<a href="fournisseur/supprimer/${ fournisseur.id }" class="btn btn-outline-danger">Supprimer</a>
 						</td>
 					</tr>
