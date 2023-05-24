@@ -5,13 +5,19 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.formation.api.request.InscriptionRequest;
 import fr.formation.api.response.UtilisateurResponse;
+import fr.formation.exception.InscriptionNotValidException;
 import fr.formation.model.Utilisateur;
 import fr.formation.repo.IUtilisateurRepository;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/utilisateur")
@@ -59,4 +65,22 @@ public class UtilisateurApiController {
 		return response;
 	}
 	
+	@PostMapping
+	public UtilisateurResponse inscription(@Valid @RequestBody InscriptionRequest inscriptionRequest, BindingResult result) {
+		if (result.hasErrors()) {
+			throw new InscriptionNotValidException();
+		}
+		
+		if (inscriptionRequest.getPassword().equals(inscriptionRequest.getPasswordVerif()) == false) {
+			throw new InscriptionNotValidException();
+		}
+		
+		Utilisateur utilisateur = new Utilisateur();
+		
+		BeanUtils.copyProperties(inscriptionRequest, utilisateur);
+		
+		this.repoUtilisateur.save(utilisateur);
+		
+		return UtilisateurResponse.convert(utilisateur);
+	}
 }

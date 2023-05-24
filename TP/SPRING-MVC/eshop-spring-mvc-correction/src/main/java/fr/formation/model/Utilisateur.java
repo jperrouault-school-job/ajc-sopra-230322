@@ -24,7 +24,7 @@ public class Utilisateur {
 	@Column(name = "uti_id")
 	private int id;
 	
-	@Column(name = "uti_username", length = 50, nullable = false)
+	@Column(name = "uti_username", length = 50, nullable = false, unique = true)
 	@NotBlank(message = "Le nom d'utilisateur est forcément obligatoire")
 	private String username;
 	
