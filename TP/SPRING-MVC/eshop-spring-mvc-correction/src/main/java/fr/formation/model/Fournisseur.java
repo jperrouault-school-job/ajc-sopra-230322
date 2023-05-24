@@ -2,6 +2,9 @@ package fr.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.api.Views;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,6 +21,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Fournisseur extends Personne {
 	@Column(name = "fou_responsable", length = 200, nullable = false)
 	@NotBlank(message = "Le nom du responsable est obligatoire")
+	@JsonView(Views.Fournisseur.class)
 	private String responsable;
 
 	@OneToMany(mappedBy = "fournisseur")
