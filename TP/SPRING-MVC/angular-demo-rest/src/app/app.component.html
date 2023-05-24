@@ -1,0 +1,11 @@
+<div>
+  <button (click)="chargerProduits()">CHARGER</button>
+
+  <ul>
+    <li *ngFor="let produit of produits">
+      {{ produit.nom }}
+
+      <button (click)="supprimerProduit(produit)">SUPPRIMER</button>
+    </li>
+  </ul>
+</div>
