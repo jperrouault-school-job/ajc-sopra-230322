@@ -24,20 +24,35 @@ public class UtilisateurApiController {
 	
 	@GetMapping
 	public List<UtilisateurResponse> findAll() {
+		return this.repoUtilisateur
+			.findAll()
+			// Transforme la liste en Stream
+			.stream()
+			// Transformer chaque Utilisateur en UtilisateurResponse
+			// > Donc on prend chaque Utilisateur, et on appelle la méthode convert de UtilisateurResponse, qui retourne un UtilisateurResponse
+			// > Donc à l'issu, on se retrouve avec un Stream de UtilisateurResponse
+			.map(UtilisateurResponse::convert)
+			// Transforme le Stream en Liste
+			.toList();
+	}
+	
+	@GetMapping("/old")
+	public List<UtilisateurResponse> findAllOld() {
 		List<UtilisateurResponse> response = new ArrayList<>();
 		List<Utilisateur> utilisateurs = this.repoUtilisateur.findAll();
 		
 		// Convertir les utilisateurs en UtilisateurResponse
 		for (Utilisateur utilisateur : utilisateurs) {
-			UtilisateurResponse utilisateurResponse = new UtilisateurResponse();
+//			UtilisateurResponse utilisateurResponse = new UtilisateurResponse();
 
 //			utilisateurResponse.setId(utilisateur.getId());
 //			utilisateurResponse.setUsername(utilisateur.getUsername());
 			
 			// Permer de recopier les infos communes de utilisateur vers utilisateurResponse
-			BeanUtils.copyProperties(utilisateur, utilisateurResponse);
+//			BeanUtils.copyProperties(utilisateur, utilisateurResponse);
 			
-			response.add(utilisateurResponse);
+//			response.add(utilisateurResponse);
+			response.add(UtilisateurResponse.convert(utilisateur));
 		}
 		
 		return response;
