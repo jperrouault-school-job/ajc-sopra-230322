@@ -40,9 +40,11 @@ public class Produit {
 	private float prix;
 
 	@Column(name = "pro_modele", length = 100, nullable = false)
+	@JsonView(Views.ProduitDetail.class)
 	private String modele;
 
 	@Column(name = "pro_reference", length = 100, nullable = false)
+	@JsonView(Views.ProduitDetail.class)
 	private String reference;
 
 	@ManyToOne
