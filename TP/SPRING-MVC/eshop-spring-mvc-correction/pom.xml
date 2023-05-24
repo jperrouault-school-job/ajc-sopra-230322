@@ -20,6 +20,8 @@
 		<jstl.version>3.0.0</jstl.version>
 		<jstl-glassfish.version>3.0.1</jstl-glassfish.version>
 		<validator.version>8.0.0.Final</validator.version>
+		
+		<jackson.version>2.15.1</jackson.version>
 	</properties>
 	
 	<dependencies>
@@ -93,6 +95,13 @@
 		    <groupId>org.hibernate.validator</groupId>
 		    <artifactId>hibernate-validator</artifactId>
 		    <version>${validator.version}</version>
+		</dependency>
+		
+		<!-- JSON -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
 </project>
