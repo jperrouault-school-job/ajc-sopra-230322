@@ -13,6 +13,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "produit")
@@ -23,9 +25,11 @@ public class Produit {
 	private int id;
 
 	@Column(name = "pro_nom", length = 255, nullable = false)
+	@NotBlank
 	private String nom;
 
 	@Column(name = "pro_prix_vente", nullable = false)
+	@Positive
 	private float prix;
 
 	@Column(name = "pro_modele", length = 100, nullable = false)
