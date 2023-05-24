@@ -24,14 +24,15 @@ public class UtilisateurApiController {
 	
 	@GetMapping
 	public List<UtilisateurResponse> findAll() {
-		return this.repoUtilisateur
-			.findAll()
+		return this.repoUtilisateur.findAll()
 			// Transforme la liste en Stream
 			.stream()
+			
 			// Transformer chaque Utilisateur en UtilisateurResponse
 			// > Donc on prend chaque Utilisateur, et on appelle la méthode convert de UtilisateurResponse, qui retourne un UtilisateurResponse
 			// > Donc à l'issu, on se retrouve avec un Stream de UtilisateurResponse
 			.map(UtilisateurResponse::convert)
+			
 			// Transforme le Stream en Liste
 			.toList();
 	}
