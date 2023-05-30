@@ -16,6 +16,7 @@ public class SecurityConfig {
 		// Mise en place des authorisations
 		http.authorizeHttpRequests(authorize -> {
 			authorize.requestMatchers("/api/hello").permitAll(); // Autorisé à tout le monde
+			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
 			authorize.requestMatchers("/**").authenticated(); // Autorisé aux utilisateurs connectés
 		});
 		
@@ -42,6 +43,14 @@ public class SecurityConfig {
 			User.withUsername("user")
 				.password("{noop}123456")
 				.roles("USER")
+				.build()
+		);
+		
+		// Création d'un administrateur
+		manager.createUser(
+			User.withUsername("admin")
+				.password("{noop}123456")
+				.roles("ADMIN")
 				.build()
 		);
 		
