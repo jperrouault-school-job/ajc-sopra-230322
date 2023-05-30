@@ -18,7 +18,11 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		// Mise en place des authorisations
 		http.authorizeHttpRequests(authorize -> {
-			authorize.requestMatchers("/api/hello").permitAll(); // Autorisé à tout le monde
+//			authorize.requestMatchers("/api/hello").permitAll(); // Autorisé à tout le monde
+//			authorize.requestMatchers("/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
+			
+			authorize.requestMatchers("/api/hello", "/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
+			
 			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
 			authorize.requestMatchers("/**").authenticated(); // Autorisé aux utilisateurs connectés
 		});
@@ -30,7 +34,7 @@ public class SecurityConfig {
 //		http.httpBasic();
 		
 		// Désactiver la protection CSRF
-//		http.csrf().disable();
+		http.csrf().disable();
 		
 		return http.build();
 	}
