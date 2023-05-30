@@ -2,6 +2,10 @@ package fr.formation.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
+import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -52,6 +56,26 @@ public class SecurityConfig {
 		
 		// Encodage Blowfish
 		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	public static MethodSecurityExpressionHandler methodExpressionHandler(RoleHierarchy roleHierarchy) {
+		DefaultMethodSecurityExpressionHandler hdlr = new DefaultMethodSecurityExpressionHandler();
+		
+		hdlr.setRoleHierarchy(roleHierarchy);		
+		
+		return hdlr;
+	}
+	
+	@Bean
+	public RoleHierarchy roleHierarchy() {
+		String hierarchy = "ROLE_ADMIN > ROLE_USER";
+		
+		RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
+		
+		roleHierarchy.setHierarchy(hierarchy);
+		
+		return roleHierarchy;
 	}
 	
 

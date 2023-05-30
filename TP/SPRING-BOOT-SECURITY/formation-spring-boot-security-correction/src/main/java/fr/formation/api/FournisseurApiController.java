@@ -20,7 +20,7 @@ public class FournisseurApiController {
 	private IFournisseurRepository repoFournisseur;
 	
 	@GetMapping
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER')")
 	public List<Fournisseur> findAll() {
 		return this.repoFournisseur.findAll();
 	}

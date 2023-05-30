@@ -27,7 +27,7 @@ public class JpaUserDetailsService implements UserDetailsService {
 		UserBuilder userBuilder = User.withUsername(username).password(utilisateur.getPassword());
 		
 		if (utilisateur.getAdmin() != null && utilisateur.getAdmin() == true) {
-			userBuilder.roles("ADMIN", "USER");
+			userBuilder.roles("ADMIN");
 		}
 		
 		else {
