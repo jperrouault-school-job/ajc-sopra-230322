@@ -2,16 +2,17 @@ package fr.formation.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableMethodSecurity(prePostEnabled = true) // Activer les annotations PrePost pour les accès
 public class SecurityConfig {
 	
 	@Bean
@@ -23,15 +24,17 @@ public class SecurityConfig {
 			
 			authorize.requestMatchers("/api/hello", "/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
 			
-			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
+			// Les accès seront configurés via les annotations PrePost
+//			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
+			
 			authorize.requestMatchers("/**").authenticated(); // Autorisé aux utilisateurs connectés
 		});
 		
 		// Méthode d'authentification par formulaire HTML
-		http.formLogin();
+//		http.formLogin();
 		
 		// Méthode d'authentification par HTTP Basic
-//		http.httpBasic();
+		http.httpBasic();
 		
 		// Désactiver la protection CSRF
 		http.csrf().disable();
