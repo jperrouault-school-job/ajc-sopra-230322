@@ -2,6 +2,7 @@ package fr.formation.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,9 +24,16 @@ public class JpaUserDetailsService implements UserDetailsService {
 		
 		// Si l'utilisateur n'a pas été trouvé, l'exception sera jetée, et on s'arrêtera là
 		
-		return User.withUsername(username)
-				.password(utilisateur.getPassword())
-				.roles("ADMIN")
-				.build();
+		UserBuilder userBuilder = User.withUsername(username).password(utilisateur.getPassword());
+		
+		if (utilisateur.getAdmin() != null && utilisateur.getAdmin() == true) {
+			userBuilder.roles("ADMIN", "USER");
+		}
+		
+		else {
+			userBuilder.roles("USER");
+		}
+		
+		return userBuilder.build();
 	}
 }

@@ -21,6 +21,9 @@ public class Utilisateur {
 	@Column(name = "uti_password", length = 200, nullable = false)
 	private String password;
 
+	@Column(name = "uti_admin")
+	private Boolean admin;
+
 	public int getId() {
 		return id;
 	}
@@ -43,5 +46,13 @@ public class Utilisateur {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 }
