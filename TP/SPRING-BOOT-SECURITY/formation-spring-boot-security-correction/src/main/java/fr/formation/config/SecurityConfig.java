@@ -34,7 +34,7 @@ public class SecurityConfig {
 	
 	
 
-	@Bean
+//	@Bean
 	public UserDetailsService inMemory() {
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 		
