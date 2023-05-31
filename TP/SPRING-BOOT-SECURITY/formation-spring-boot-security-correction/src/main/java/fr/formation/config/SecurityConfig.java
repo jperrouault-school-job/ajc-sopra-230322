@@ -45,7 +45,7 @@ public class SecurityConfig {
 //		http.formLogin(Customizer.withDefaults());
 		
 		// Méthode d'authentification par HTTP Basic
-		http.httpBasic(Customizer.withDefaults());
+//		http.httpBasic(Customizer.withDefaults());
 		
 		// Désactiver la protection CSRF
 		http.csrf(c -> c.disable());
