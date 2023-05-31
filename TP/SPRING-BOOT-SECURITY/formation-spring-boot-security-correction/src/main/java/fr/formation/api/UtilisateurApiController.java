@@ -18,6 +18,7 @@ import fr.formation.api.request.ConnexionRequest;
 import fr.formation.api.request.InscriptionRequest;
 import fr.formation.api.response.ConnexionResponse;
 import fr.formation.api.response.UtilisateurResponse;
+import fr.formation.config.jwt.JwtUtil;
 import fr.formation.model.Utilisateur;
 import fr.formation.repo.IUtilisateurRepository;
 
@@ -64,8 +65,11 @@ public class UtilisateurApiController {
 		// Si on arrive ici, c'est que la connexion a fonctionné
 		ConnexionResponse response = new ConnexionResponse();
 		
+		// On génère un jeton pour l'utilisateur connecté
+		String token = JwtUtil.generate(authentication);
+		
 		response.setSuccess(true);
-		response.setToken("petitjeton");
+		response.setToken(token); // On donne le jeton en réponse
 		
 		return response;
 	}
