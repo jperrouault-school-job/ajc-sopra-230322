@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +30,9 @@ public class UtilisateurApiController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired // Par défaut, ce manager n'existe pas dans le contexte, donc on le configure dans SecurityConfig
+	private AuthenticationManager authenticationManager;
+	
 	@GetMapping
 	@PreAuthorize("hasRole('ADMIN')")
 	public List<UtilisateurResponse> findAll() {
@@ -45,8 +51,17 @@ public class UtilisateurApiController {
 	
 	@PostMapping("/connexion")
 	public ConnexionResponse connexion(@RequestBody ConnexionRequest connexionRequest) {
-		// TODO Faire la connexion ...
+		// On va demander à SPRING SECURITY de vérifier le username / password
+		// On a besoin d'un AuthenticationManager
+		// On utilisera la méthode authenticate, qui attend un Authentication
+		// Et on utilisera le type UsernamePasswordAuthenticationToken pour donner le username & le password
+		Authentication authentication =
+				new UsernamePasswordAuthenticationToken(connexionRequest.getUsername(), connexionRequest.getPassword());
 		
+		// On demande à SPRING SECURITY de vérifier ces informations de connexion
+		this.authenticationManager.authenticate(authentication);
+		
+		// Si on arrive ici, c'est que la connexion a fonctionné
 		ConnexionResponse response = new ConnexionResponse();
 		
 		response.setSuccess(true);
