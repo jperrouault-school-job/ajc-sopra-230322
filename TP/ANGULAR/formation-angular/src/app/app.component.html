@@ -11,3 +11,17 @@
 
 <!-- Remplace le (input) grâce au module FormsModule -->
 <input type="text" [(ngModel)]="prenom" />
+
+<hr />
+
+<select [(ngModel)]="couleur">
+  <option value="black">Noire</option>
+  <option value="red">Rouge</option>
+  <option value="blue">Bleue</option>
+  <option value="yellow">Jaune</option>
+  <option value="orange">Orange</option>
+</select>
+
+<input type="color" [(ngModel)]="couleur2" />
+
+<p [style.color]="couleur" [style.background]="couleur2">Avec un texte bidon à l'intérieur du paragraphe...</p>

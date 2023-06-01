@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'formation-angular';
   prenom: string = "Jérémy";
+  couleur: string = "black";
+  couleur2: string = "#FFFFFF";
 
   personne = {
     nom: "TOTO",
