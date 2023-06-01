@@ -2,6 +2,6 @@ p {
     transition: all 0.25s ease-in-out;
 }
 
-.notcompleted {
+.not-completed {
     background: crimson;
 }
