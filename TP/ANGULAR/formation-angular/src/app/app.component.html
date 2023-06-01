@@ -2,5 +2,12 @@
 <p>Trop la classe !!!!</p>
 <p>{{ 5 + 5 }}</p>
 <p>{{ title }} -> {{ prenom }}</p>
+<p>{{ prenom }}</p>
+<p>{{ prenom }}</p>
+<p>{{ prenom }}</p>
 
 <p>{{ personne.prenom }}</p>
+
+<input (input)="onChangePrenom($event)" type="text" [value]="prenom" />
+<button (click)="leNomFonction()">Un bouton qui clique</button>
+<button (click)="resetPrenom($event)">Réinitialiser prénom</button>

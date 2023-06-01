@@ -14,4 +14,17 @@ export class AppComponent {
     prenom: "Albert"
   }
 
+  leNomFonction() {
+    alert('Alerte générale');
+  }
+
+  resetPrenom(event: any) {
+    console.log(event);
+    
+    this.prenom = "par défaut";
+  }
+
+  onChangePrenom(event: any) {
+    this.prenom = event.target.value;
+  }
 }
