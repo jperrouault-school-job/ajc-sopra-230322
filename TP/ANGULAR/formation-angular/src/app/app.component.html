@@ -33,3 +33,4 @@
 <input type="checkbox" [(ngModel)]="todo.completed" />
 
 <p [ngClass]="{ 'not-completed': !todo.completed }">{{ todo.title }}</p>
+<p [class.not-completed]="!todo.completed">{{ todo.title }}</p>
