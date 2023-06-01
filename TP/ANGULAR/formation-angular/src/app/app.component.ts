@@ -11,6 +11,7 @@ export class AppComponent {
   prenom: string = "Jérémy";
   couleur: string = "black";
   couleur2: string = "#FFFFFF";
+  todo: Todo = new Todo(1, "Test");
 
   personne = {
     nom: "TOTO",

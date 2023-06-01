@@ -25,3 +25,11 @@
 <input type="color" [(ngModel)]="couleur2" />
 
 <p [style.color]="couleur" [style.background]="couleur2">Avec un texte bidon à l'intérieur du paragraphe...</p>
+
+<hr />
+
+<input type="number" [(ngModel)]="todo.id" />
+<input type="text" [(ngModel)]="todo.title" />
+<input type="checkbox" [(ngModel)]="todo.completed" />
+
+<p [ngClass]="{ 'not-completed': !todo.completed }">{{ todo.title }}</p>
