@@ -5,12 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DemoPipe } from './demo.pipe';
 import { TodoStatePipe } from './todo-state.pipe';
+import { DemoComponent } from './demo/demo.component';
+import { SostBoldComponent } from './sost-bold/sost-bold.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoPipe,
-    TodoStatePipe
+    TodoStatePipe,
+    DemoComponent,
+    SostBoldComponent
   ],
   
   imports: [
