@@ -1,7 +1,9 @@
-<p>
+<div>
   <ng-content select=".prefix"></ng-content>
 
-  <strong>
+  <strong (click)="onClick()">
     <ng-content select="[gras]"></ng-content>
   </strong>
-</p>
+
+  <p>L'utilisateur a cliqué {{ compteur }} fois.</p>
+</div>

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sost-bold.component.css']
 })
 export class SostBoldComponent {
+  compteur: number = 0;
 
+  onClick() {
+    this.compteur++;
+  }
 }
