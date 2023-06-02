@@ -60,32 +60,7 @@
 <hr />
 
 <button (click)="resetTodos()">Réinitialiser les Todos</button>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Titre</th>
-      <th>Complet</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let t of todos">
-      <td>{{ t.id }}</td>
-      <td>{{ t.title | demo:t.completed }}</td>
-      <td [style.color]="t.completed | todoState">{{ t.completed | todoState:"string" }}</td>
-      <!-- <td *ngIf="t.completed">OUI</td>
-      <td *ngIf="!t.completed">NON</td> -->
-      
-      <!-- <td>{{ t.completed ? 'OUI' : 'NON' }}</td> -->
-
-      <!-- <td>
-        <span *ngIf="t.completed; else non">OUI</span>
-        <ng-template #non>NON</ng-template>
-      </td> -->
-    </tr>
-  </tbody>
-</table>
+<sost-list-todos [todos]="todos"></sost-list-todos>
 
 <hr />
 <app-demo [titre]="todo.title" [todo]="todo">CONTENU</app-demo>
