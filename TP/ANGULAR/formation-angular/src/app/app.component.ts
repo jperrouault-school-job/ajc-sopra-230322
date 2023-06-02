@@ -58,4 +58,8 @@ export class AppComponent {
     this.todos.push(this.todo);
     this.todo = new Todo(42, "");
   }
+
+  resetTodos() {
+    this.todos.splice(3);
+  }
 }
