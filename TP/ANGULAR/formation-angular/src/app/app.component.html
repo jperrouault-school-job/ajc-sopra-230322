@@ -72,10 +72,14 @@
       <td>{{ t.title }}</td>
       <!-- <td *ngIf="t.completed">OUI</td>
       <td *ngIf="!t.completed">NON</td> -->
+      
+      <!-- <td>{{ t.completed ? 'OUI' : 'NON' }}</td> -->
+
       <td>
         <span *ngIf="t.completed; else non">OUI</span>
         <ng-template #non>NON</ng-template>
       </td>
+
     </tr>
   </tbody>
 </table>
