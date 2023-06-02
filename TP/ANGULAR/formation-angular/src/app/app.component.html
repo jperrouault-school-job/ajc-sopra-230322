@@ -44,3 +44,13 @@
 
 <p [ngClass]="{ 'not-completed': !todo.completed }">{{ todo.title }}</p>
 <p [class.not-completed]="!todo.completed">{{ todo.title }}</p>
+
+
+<hr />
+
+<ng-template [ngIf]="todo.completed">
+  <p>TODO COMPLET !!</p>
+</ng-template>
+
+<!-- L'étoile est un raccourci au ng-template -->
+<p *ngIf="todo.completed">TODO COMPLET !!</p>
