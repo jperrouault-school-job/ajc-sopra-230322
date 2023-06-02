@@ -45,6 +45,8 @@
 <p [ngClass]="{ 'not-completed': !todo.completed }">{{ todo.title }}</p>
 <p [class.not-completed]="!todo.completed">{{ todo.title }}</p>
 
+<button (click)="ajouterTodo()">Ajouter</button>
+
 
 <hr />
 

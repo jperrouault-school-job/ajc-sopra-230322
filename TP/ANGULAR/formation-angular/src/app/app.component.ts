@@ -53,4 +53,9 @@ export class AppComponent {
     // Solution #2
     this.produit = new Produit("", 0);
   }
+
+  ajouterTodo() {
+    this.todos.push(this.todo);
+    this.todo = new Todo(42, "");
+  }
 }
