@@ -7,6 +7,7 @@ import { DemoPipe } from './demo.pipe';
 import { TodoStatePipe } from './todo-state.pipe';
 import { DemoComponent } from './demo/demo.component';
 import { SostBoldComponent } from './sost-bold/sost-bold.component';
+import { SostTextFieldComponent } from './sost-text-field/sost-text-field.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SostBoldComponent } from './sost-bold/sost-bold.component';
     DemoPipe,
     TodoStatePipe,
     DemoComponent,
-    SostBoldComponent
+    SostBoldComponent,
+    SostTextFieldComponent
   ],
   
   imports: [
