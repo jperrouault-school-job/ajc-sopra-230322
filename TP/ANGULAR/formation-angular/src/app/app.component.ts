@@ -15,6 +15,13 @@ export class AppComponent {
   todo: Todo = new Todo(1, "Test");
   produit: Produit = new Produit("", 0);
 
+  todos: Todo[] = [
+    new Todo(1, "Prendre son café", true),
+    new Todo(2, "Corriger l'exercice", false),
+    new Todo(3, "Voir les composants", false)
+  ];
+
+
   personne = {
     nom: "TOTO",
     prenom: "Albert"
