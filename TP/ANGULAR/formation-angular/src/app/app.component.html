@@ -28,6 +28,16 @@
 
 <hr />
 
+<input type="text" [(ngModel)]="produit.nom" />
+<input type="number" [(ngModel)]="produit.prix" />
+
+<p>Création du produit "{{ produit.nom }}", d'un prix de {{ produit.prix }} euros.</p>
+
+<button (click)="ajouterProduit()">Ajouter</button>
+<button (click)="resetProduit()">Réinitialiser</button>
+
+<hr />
+
 <input type="number" [(ngModel)]="todo.id" />
 <input type="text" [(ngModel)]="todo.title" />
 <input type="checkbox" [(ngModel)]="todo.completed" />
