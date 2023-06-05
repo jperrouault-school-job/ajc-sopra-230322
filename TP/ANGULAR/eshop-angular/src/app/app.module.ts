@@ -5,10 +5,7 @@ import { AppComponent } from './app.component';
 import { TableauFournisseurComponent } from './tableau-fournisseur/tableau-fournisseur.component';
 import { FormFournisseurComponent } from './form-fournisseur/form-fournisseur.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-
+  
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,10 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
