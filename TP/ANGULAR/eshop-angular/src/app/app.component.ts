@@ -1,28 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Fournisseur } from './fournisseur';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  // Liste de fournisseurs
-  fournisseurs!: Fournisseur[];
-  
-  ngOnInit(): void {
-    this.fournisseurs = [
-      new Fournisseur(1, "Le nom", "Le responsable"),
-      new Fournisseur(2, "GoPRO", "Thierry")
-    ];
-  }
-
-  onAjoutFournisseur(fournisseurToAdd: Fournisseur) {
-    this.fournisseurs.push(fournisseurToAdd);
-  }
-
-  onSupprimerFournisseur(fournisseurToRemove: Fournisseur) {
-    const position = this.fournisseurs.indexOf(fournisseurToRemove);
-    this.fournisseurs.splice(position, 1);
-  }
+export class AppComponent {
 }

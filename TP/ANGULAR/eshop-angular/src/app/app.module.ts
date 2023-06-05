@@ -9,6 +9,9 @@ import { HomeComponent } from './views/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoComponent } from './views/todo/todo.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { FournisseurComponent } from './views/fournisseur/fournisseur.component';
+import { ProduitComponent } from './views/produit/produit.component';
+import { ProduitDetailComponent } from './views/produit-detail/produit-detail.component';
 
 
 // Configuration des routes
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'accueil', component: HomeComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'todo/:id', component: TodoComponent },
+  { path: 'fournisseur', component: FournisseurComponent },
+  { path: 'produit', component: ProduitComponent },
+  { path: 'produit/:id', component: ProduitDetailComponent },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -29,7 +35,10 @@ const routes: Routes = [
     FormFournisseurComponent,
     HomeComponent,
     TodoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FournisseurComponent,
+    ProduitComponent,
+    ProduitDetailComponent
   ],
   imports: [
     BrowserModule,

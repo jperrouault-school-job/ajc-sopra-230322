@@ -1,0 +1,8 @@
+<h1>Liste des fournisseurs</h1>
+
+<form-fournisseur (ajout)="onAjoutFournisseur($event)"></form-fournisseur>
+
+<tableau-fournisseur
+  [fournisseurs]="fournisseurs"
+  (supprimer)="onSupprimerFournisseur($event)">
+</tableau-fournisseur>
