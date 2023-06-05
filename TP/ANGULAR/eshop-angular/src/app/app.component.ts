@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Fournisseur } from './fournisseur';
 
 @Component({
@@ -6,12 +6,16 @@ import { Fournisseur } from './fournisseur';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // Liste de fournisseurs
-  fournisseurs: Fournisseur[] = [
-    new Fournisseur(1, "Le nom", "Le responsable"),
-    new Fournisseur(2, "GoPRO", "Thierry")
-  ];
+  fournisseurs!: Fournisseur[];
+  
+  ngOnInit(): void {
+    this.fournisseurs = [
+      new Fournisseur(1, "Le nom", "Le responsable"),
+      new Fournisseur(2, "GoPRO", "Thierry")
+    ];
+  }
 
   onAjoutFournisseur(fournisseurToAdd: Fournisseur) {
     this.fournisseurs.push(fournisseurToAdd);
