@@ -2,4 +2,7 @@
 
 <form-fournisseur (ajout)="onAjoutFournisseur($event)"></form-fournisseur>
 
-<tableau-fournisseur [fournisseurs]="fournisseurs"></tableau-fournisseur>
+<tableau-fournisseur
+  [fournisseurs]="fournisseurs"
+  (supprimer)="onSupprimerFournisseur($event)">
+</tableau-fournisseur>

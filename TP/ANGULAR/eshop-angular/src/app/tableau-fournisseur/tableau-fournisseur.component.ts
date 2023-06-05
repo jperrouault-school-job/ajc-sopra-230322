@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Fournisseur } from '../fournisseur';
 
 @Component({
@@ -8,9 +8,11 @@ import { Fournisseur } from '../fournisseur';
 })
 export class TableauFournisseurComponent {
   @Input() fournisseurs!: Fournisseur[];
+  @Output() supprimer: EventEmitter<Fournisseur> = new EventEmitter<Fournisseur>();
 
   supprimerFournisseur(fournisseur: Fournisseur) {
-    const position = this.fournisseurs.indexOf(fournisseur);
-    this.fournisseurs.splice(position, 1);
+    // const position = this.fournisseurs.indexOf(fournisseur);
+    // this.fournisseurs.splice(position, 1);
+    this.supprimer.emit(fournisseur);
   }
 }

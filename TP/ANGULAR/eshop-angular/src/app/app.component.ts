@@ -16,4 +16,9 @@ export class AppComponent {
   onAjoutFournisseur(fournisseurToAdd: Fournisseur) {
     this.fournisseurs.push(fournisseurToAdd);
   }
+
+  onSupprimerFournisseur(fournisseurToRemove: Fournisseur) {
+    const position = this.fournisseurs.indexOf(fournisseurToRemove);
+    this.fournisseurs.splice(position, 1);
+  }
 }
