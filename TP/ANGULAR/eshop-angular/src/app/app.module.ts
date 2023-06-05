@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './views/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoComponent } from './views/todo/todo.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 
 // Configuration des routes
@@ -15,7 +16,9 @@ const routes: Routes = [
   // Chaque route a AU MINIMUM un chemin (path) et un composant (component)
   { path: 'accueil', component: HomeComponent },
   { path: 'todo', component: TodoComponent },
-  { path: 'todo/:id', component: TodoComponent }
+  { path: 'todo/:id', component: TodoComponent },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
   
@@ -25,7 +28,8 @@ const routes: Routes = [
     TableauFournisseurComponent,
     FormFournisseurComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
