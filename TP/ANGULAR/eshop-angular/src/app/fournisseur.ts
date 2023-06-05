@@ -18,10 +18,10 @@ export class Fournisseur {
   public get responsable(): string {
     return this._responsable;
   }
+  
   public set responsable(value: string) {
     this._responsable = value;
   }
-  
   
   constructor(
     private _id: number,

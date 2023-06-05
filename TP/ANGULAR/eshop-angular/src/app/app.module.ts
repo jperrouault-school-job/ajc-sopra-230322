@@ -5,16 +5,32 @@ import { AppComponent } from './app.component';
 import { TableauFournisseurComponent } from './tableau-fournisseur/tableau-fournisseur.component';
 import { FormFournisseurComponent } from './form-fournisseur/form-fournisseur.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './views/home/home.component';
+import { Routes, RouterModule } from '@angular/router';
+import { TodoComponent } from './views/todo/todo.component';
+
+
+// Configuration des routes
+const routes: Routes = [
+  // Chaque route a AU MINIMUM un chemin (path) et un composant (component)
+  { path: 'accueil', component: HomeComponent },
+  { path: 'todo', component: TodoComponent },
+  { path: 'todo/:id', component: TodoComponent }
+];
+
   
 @NgModule({
   declarations: [
     AppComponent,
     TableauFournisseurComponent,
-    FormFournisseurComponent
+    FormFournisseurComponent,
+    HomeComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

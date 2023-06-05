@@ -1,4 +1,27 @@
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="[ '/accueil' ]">Accueil</a>
+    </li>
+
+    <li>
+      <a [routerLink]="[ '/todo' ]">Todo</a>
+    </li>
+
+    <li>
+      <a [routerLink]="[ '/todo', 42 ]">Todo 42</a>
+    </li>
+
+    <li>
+      <a [routerLink]="[ '/todo', 43 ]">Todo 43</a>
+    </li>
+  </ul>
+</nav>
+
 <h1>Liste des fournisseurs</h1>
+
+<!-- Ceci est pour afficher le composant lié à la route active -->
+<router-outlet></router-outlet>
 
 <form-fournisseur (ajout)="onAjoutFournisseur($event)"></form-fournisseur>
 
