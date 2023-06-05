@@ -1,17 +1,17 @@
-<div>
-  <label>ID</label>
-  <input type="number" [(ngModel)]="formFournisseur.id" />
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>ID</mat-label>
+  <input matInput placeholder="ID" [(ngModel)]="formFournisseur.id">
+</mat-form-field>
 
-<div>
-  <label>Nom</label>
-  <input type="text" [(ngModel)]="formFournisseur.nom" />
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>Nom</mat-label>
+  <input matInput placeholder="Nom" [(ngModel)]="formFournisseur.nom">
+</mat-form-field>
 
-<div>
-  <label>Responsable</label>
-  <input type="text" [(ngModel)]="formFournisseur.responsable" />
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>Responsable</mat-label>
+  <input matInput placeholder="Responsable" [(ngModel)]="formFournisseur.responsable">
+</mat-form-field>
 
 <div>
   <button (click)="ajouterFournisseur()">Ajouter</button>
