@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Fournisseur } from '../fournisseur';
 
 @Component({
@@ -8,10 +8,12 @@ import { Fournisseur } from '../fournisseur';
 })
 export class FormFournisseurComponent {
   formFournisseur: Fournisseur = new Fournisseur(0, "", "");
-  @Input() fournisseurs!: Fournisseur[];
+  // @Input() fournisseurs!: Fournisseur[];
+  @Output() ajout = new EventEmitter<Fournisseur>();
 
   ajouterFournisseur() {
-    this.fournisseurs.push(this.formFournisseur);
+    // this.fournisseurs.push(this.formFournisseur);
+    this.ajout.emit(this.formFournisseur);
     this.formFournisseur = new Fournisseur(0, "", "");
   }
 }

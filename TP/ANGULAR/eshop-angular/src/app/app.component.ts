@@ -12,4 +12,8 @@ export class AppComponent {
     new Fournisseur(1, "Le nom", "Le responsable"),
     new Fournisseur(2, "GoPRO", "Thierry")
   ];
+
+  onAjoutFournisseur(fournisseurToAdd: Fournisseur) {
+    this.fournisseurs.push(fournisseurToAdd);
+  }
 }
