@@ -24,7 +24,9 @@ export class AppComponent implements OnInit {
     prenom: "Albert"
   }
 
-  constructor(private srvDemo: DemoService, private srvTodo: TodoService) {
+  constructor(
+    private srvDemo: DemoService,
+    private srvTodo: TodoService) {
     this.srvDemo.hello();
   }
 
