@@ -14,12 +14,14 @@ import { ProduitComponent } from './views/produit/produit.component';
 import { ProduitDetailComponent } from './views/produit-detail/produit-detail.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthenticationInterceptor } from './authentication.interceptor';
+import { LoginComponent } from './views/login/login.component';
 
 
 // Configuration des routes
 const routes: Routes = [
   // Chaque route a AU MINIMUM un chemin (path) et un composant (component)
   { path: 'accueil', component: HomeComponent },
+  { path: 'connexion', component: LoginComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'todo/:id', component: TodoComponent },
   { path: 'fournisseur', component: FournisseurComponent },
@@ -40,7 +42,8 @@ const routes: Routes = [
     PageNotFoundComponent,
     FournisseurComponent,
     ProduitComponent,
-    ProduitDetailComponent
+    ProduitDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+<div *ngIf="erreur">
+  Nom d'utilisateur ou mot de passe incorrect !
+</div>
+
+<div>
+  <label>Nom d'utilisateur</label>
+  <input type="text" [(ngModel)]="username" />
+</div>
+
+<div>
+  <label>Mot de passe</label>
+  <input type="password" [(ngModel)]="password" />
+</div>
+
+<div>
+  <button (click)="seConnecter()">Se connecter</button>
+</div>
