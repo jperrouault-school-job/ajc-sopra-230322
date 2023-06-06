@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
 import { Produit } from './produit';
 import { DemoService } from './demo.service';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'formation-angular';
   prenom: string = "Jérémy";
   couleur: string = "black";
@@ -16,20 +17,19 @@ export class AppComponent {
   todo: Todo = new Todo(1, "Test");
   produit: Produit = new Produit("", 0);
 
-  todos: Todo[] = [
-    new Todo(1, "Prendre son café", true),
-    new Todo(2, "Corriger l'exercice", false),
-    new Todo(3, "Voir les composants", false)
-  ];
-
+  todos!: Todo[];
 
   personne = {
     nom: "TOTO",
     prenom: "Albert"
   }
 
-  constructor(private srvDemo: DemoService) {
+  constructor(private srvDemo: DemoService, private srvTodo: TodoService) {
     this.srvDemo.hello();
+  }
+
+  ngOnInit(): void {
+    this.todos = this.srvTodo.findAll();
   }
 
   leNomFonction() {
