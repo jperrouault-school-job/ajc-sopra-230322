@@ -16,6 +16,7 @@ export class TodoService {
     // Particularité des Observables : il faut s'inscrire et se désinscrire
     // !!! Tant qu'on ne s'inscrit pas, la fonction derrière l'Observable ne s'exécutera pas
 
+    // Pour exemple ..
     this.todos = [];
     console.log("ETAPE 1");
     
@@ -38,5 +39,9 @@ export class TodoService {
 
   public findAll(): Todo[] {
     return this.todos;
+  }
+
+  public findAllObs(): Observable<Todo[]> {
+    return this.httpClient.get<Todo[]>('https://jsonplaceholder.typicode.com/todos');
   }
 }

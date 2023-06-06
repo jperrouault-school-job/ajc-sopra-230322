@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let t of todos">
+    <tr *ngFor="let t of todos$ | async">
       <td>{{ t.id }}</td>
       <td>{{ t.title | demo:t.completed }}</td>
       <td [style.color]="t.completed | todoState">{{ t.completed | todoState:"string" }}</td>
