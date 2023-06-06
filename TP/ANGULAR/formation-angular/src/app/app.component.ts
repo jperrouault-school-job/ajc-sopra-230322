@@ -31,6 +31,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("ETAPE 3");
+    
     this.todos = this.srvTodo.findAll();
   }
 

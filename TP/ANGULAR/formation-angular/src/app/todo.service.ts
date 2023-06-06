@@ -17,8 +17,10 @@ export class TodoService {
     // !!! Tant qu'on ne s'inscrit pas, la fonction derrière l'Observable ne s'exécutera pas
 
     this.todos = [];
-
+    console.log("ETAPE 1");
+    
     obsTodos.subscribe(todos => {
+      console.log("ETAPE 2");
       // On a reçu la liste des todos, que fait-on ?
       // console.log(todos);
       // this.todos = todos;
