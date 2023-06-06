@@ -12,7 +12,8 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 import { FournisseurComponent } from './views/fournisseur/fournisseur.component';
 import { ProduitComponent } from './views/produit/produit.component';
 import { ProduitDetailComponent } from './views/produit-detail/produit-detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthenticationInterceptor } from './authentication.interceptor';
 
 
 // Configuration des routes
@@ -47,7 +48,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

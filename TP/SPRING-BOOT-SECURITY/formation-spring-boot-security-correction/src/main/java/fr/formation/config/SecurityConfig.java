@@ -36,7 +36,7 @@ public class SecurityConfig {
 //			authorize.requestMatchers("/api/hello").permitAll(); // Autorisé à tout le monde
 //			authorize.requestMatchers("/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
 			
-			authorize.requestMatchers("/api/hello", "/api/utilisateur/**", "/api/fournisseur/**").permitAll(); // Autorisé à tout le monde
+			authorize.requestMatchers("/api/hello", "/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
 			
 			// Les accès seront configurés via les annotations PrePost
 //			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
