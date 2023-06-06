@@ -1,5 +1,7 @@
 package fr.formation.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
@@ -18,6 +20,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 import fr.formation.config.jwt.JwtHeaderAuthorizationFilter;
 
@@ -32,7 +36,7 @@ public class SecurityConfig {
 //			authorize.requestMatchers("/api/hello").permitAll(); // Autorisé à tout le monde
 //			authorize.requestMatchers("/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
 			
-			authorize.requestMatchers("/api/hello", "/api/utilisateur/**").permitAll(); // Autorisé à tout le monde
+			authorize.requestMatchers("/api/hello", "/api/utilisateur/**", "/api/fournisseur/**").permitAll(); // Autorisé à tout le monde
 			
 			// Les accès seront configurés via les annotations PrePost
 //			authorize.requestMatchers("/api/fournisseur/**").hasRole("ADMIN"); // Autotisé aux utilisateurs "admin"
@@ -48,6 +52,26 @@ public class SecurityConfig {
 		
 		// Désactiver la protection CSRF
 		http.csrf(c -> c.disable());
+		
+		// Configurer les CORS (Cross-Origine Resources Sharing)
+		http.cors(c -> {
+			CorsConfigurationSource source = request -> {
+				CorsConfiguration config = new CorsConfiguration();
+				
+				// On autorise tout le monde
+				config.setAllowedOrigins(List.of("*"));
+				
+				// On autorise toutes les commandes HTTP (GET, POST, PUT, ...)
+				config.setAllowedMethods(List.of("*"));
+				
+				// On autorise toutes les en-têtes HTTP
+				config.setAllowedHeaders(List.of("*"));
+				
+				return config;
+			};
+			
+			c.configurationSource(source);
+		});
 		
 		// Positionner le filtre JWT AVANT le filter UsernamePasswordAuthenticationFilter
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
