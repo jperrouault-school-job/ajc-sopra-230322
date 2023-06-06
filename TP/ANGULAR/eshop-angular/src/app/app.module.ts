@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 import { FournisseurComponent } from './views/fournisseur/fournisseur.component';
 import { ProduitComponent } from './views/produit/produit.component';
 import { ProduitDetailComponent } from './views/produit-detail/produit-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // Configuration des routes
@@ -43,7 +44,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

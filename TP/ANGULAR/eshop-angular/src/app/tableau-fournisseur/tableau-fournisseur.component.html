@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let fournisseur of fournisseurs">
+    <tr *ngFor="let fournisseur of fournisseurs$ | async">
       <td>{{ fournisseur.id }}</td>
       <td>{{ fournisseur.nom }}</td>
       <td>{{ fournisseur.responsable }}</td>
