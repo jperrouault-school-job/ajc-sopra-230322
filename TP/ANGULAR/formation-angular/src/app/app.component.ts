@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Todo } from './todo';
 import { Produit } from './produit';
+import { DemoService } from './demo.service';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,10 @@ export class AppComponent {
   personne = {
     nom: "TOTO",
     prenom: "Albert"
+  }
+
+  constructor(private srvDemo: DemoService) {
+    this.srvDemo.hello();
   }
 
   leNomFonction() {
