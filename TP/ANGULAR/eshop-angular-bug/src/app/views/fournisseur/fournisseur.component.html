@@ -1,0 +1,33 @@
+<h1>Liste des fournisseurs</h1>
+
+<button *ngIf="!fournisseurForm" class="btn btn-success" (click)="ajouter()">Ajouter un nouveau fournisseur</button>
+
+<div *ngIf="fournisseurForm">
+  <sost-form-card [formGroup]="fournisseurForm" [title]="editing ? 'Modifier le fournisseur' : 'Ajouter un fournisseur'" [ok-label]="editing ? 'Modifier' : 'Ajouter'" [cancellable]="true" (ok)="ajouterOuModifier()" (cancel)="stopAjouterOuModifier()">
+    <sost-form-input id="nom" label="Nom" formControlName="nom" [formControl]="nomCtrl" message-when-not-valid="Le nom est obligatoire" />
+    <sost-form-input id="responsable" label="Nom du responsable" formControlName="responsable" [formControl]="responsableCtrl" message-when-not-valid="Le responsable est obligatoire" />
+  </sost-form-card>
+
+  <hr />
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Responsable</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let fournisseur of fournisseurs">
+      <td>{{ fournisseur.nom }}</td>
+      <td>{{ fournisseur.responsable }}</td>
+      <td>
+        <button (click)="modifier(fournisseur)" class="btn btn-outline-warning">Modifier</button>
+        <button (click)="supprimer(fournisseur)" class="btn btn-outline-danger ms-2">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

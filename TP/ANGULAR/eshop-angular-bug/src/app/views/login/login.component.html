@@ -1,0 +1,10 @@
+<h1>Se connecter</h1>
+
+<div *ngIf="erreur" class="alert alert-danger">
+  Nom d'utilisateur ou mot de passe incorrect !
+</div>
+
+<sost-form-card [formGroup]="userForm" title="Connexion" ok-label="Se connecter" (ok)="seConnecter()">
+  <sost-form-input id="username" label="Nom d'utilisateur" formControlName="username" [formControl]="usernameCtrl" message-when-not-valid="Le nom d'utilisateur est obligatoire" />
+  <sost-form-input type="password" id="password" label="Mot de passe" formControlName="password" [formControl]="passwordCtrl" message-when-not-valid="Le mot de passe est obligatoire" />
+</sost-form-card>

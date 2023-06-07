@@ -1,0 +1,17 @@
+
+<div class="card">
+  <div *ngIf="title" class="card-header">
+    <h2>{{ title }}</h2>
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="formGroup" (ngSubmit)="doOk()">
+      <ng-content></ng-content>
+    </form>
+  </div>
+
+  <div class="card-footer">
+    <button [disabled]="formGroup.invalid" class="btn btn-success" (click)="doOk()">{{ okLabel }}</button>
+    <button *ngIf="cancellable" class="btn btn-danger ms-2" (click)="doCancel()">Annuler</button>
+  </div>
+</div>
