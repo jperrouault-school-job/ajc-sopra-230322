@@ -70,8 +70,13 @@ public class ProduitApiController {
 		}
 		
 		Produit produit = this.repoProduit.findById(id).orElseThrow(EntityNotFoundException::new);
+		Fournisseur fournisseur = new Fournisseur();
 		
 		BeanUtils.copyProperties(produitRequest, produit);
+//		produit.getFournisseur().setId(produitRequest.getFournisseurId());
+
+		fournisseur.setId(produitRequest.getFournisseurId());
+		produit.setFournisseur(fournisseur);
 		
 		this.repoProduit.save(produit);
 		

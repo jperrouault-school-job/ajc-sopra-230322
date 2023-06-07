@@ -1,0 +1,47 @@
+<h1>Liste des produits</h1>
+
+<button *ngIf="!produitForm" class="btn btn-success" (click)="ajouter()">Ajouter un nouveau produit</button>
+
+<div *ngIf="produitForm">
+  <sost-form-card [formGroup]="produitForm" [title]="editing ? 'Modifier le produit' : 'Ajouter un produit'" [ok-label]="editing ? 'Modifier' : 'Ajouter'" [cancellable]="true" (ok)="ajouterOuModifier()" (cancel)="stopAjouterOuModifier()">
+    <sost-form-input id="nom" label="Nom" formControlName="nom" [formControl]="nomCtrl" message-when-not-valid="Le nom est obligatoire" />
+    <sost-form-input id="prix" label="Prix" formControlName="prix" [formControl]="prixCtrl" message-when-not-valid="Le prix doit être supérieur à 0" />
+    <sost-form-input id="modele" label="Nom du modèle" formControlName="modele" [formControl]="modeleCtrl" message-when-not-valid="Le modèle est obligatoire" />
+    <sost-form-input id="reference" label="Référence" formControlName="reference" [formControl]="referenceCtrl" message-when-not-valid="La référence est obligatoire" />
+    
+    <sost-form-select id="fournisseurId" label="Fournisseur"
+                      [items]="fournisseurs$ | async"
+                      itemLabel="nom"
+                      formControlName="fournisseurId" [formControl]="fournisseurIdCtrl"
+                      message-when-not-valid="Le fournisseur est obligatoire" />
+  </sost-form-card>
+
+  <hr />
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prix</th>
+      <th>Modèle</th>
+      <th>Référence</th>
+      <th>Fournisseur</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let produit of produits$ | async">
+      <td>{{ produit.nom }}</td>
+      <td>{{ produit.prix }} &euro;</td>
+      <td>{{ produit.modele }}</td>
+      <td>{{ produit.reference }}</td>
+      <td>{{ produit.fournisseurNom }}</td>
+      <td>
+        <button (click)="modifier(produit)" class="btn btn-outline-warning">Modifier</button>
+        <button (click)="supprimer(produit)" class="btn btn-outline-danger ms-2">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
