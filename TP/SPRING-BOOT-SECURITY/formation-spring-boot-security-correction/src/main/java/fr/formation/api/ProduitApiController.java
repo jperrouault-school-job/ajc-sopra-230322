@@ -17,60 +17,65 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.formation.api.request.FournisseurRequest;
-import fr.formation.api.response.FournisseurResponse;
+import fr.formation.api.request.ProduitRequest;
+import fr.formation.api.response.ProduitResponse;
 import fr.formation.exception.EntityNotFoundException;
 import fr.formation.exception.EntityNotValidException;
 import fr.formation.model.Fournisseur;
-import fr.formation.repo.IFournisseurRepository;
+import fr.formation.model.Produit;
+import fr.formation.repo.IProduitRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/fournisseur")
-public class FournisseurApiController {
+@RequestMapping("/api/produit")
+public class ProduitApiController {
 	@Autowired
-	private IFournisseurRepository repoFournisseur;
+	private IProduitRepository repoProduit;
 	
 	@GetMapping
 	@PreAuthorize("hasRole('USER')")
-	public List<FournisseurResponse> findAll() {
-		return this.repoFournisseur.findAll()
+	public List<ProduitResponse> findAll() {
+		return this.repoProduit.findAll()
 				.stream()
-				.map(FournisseurResponse::new)
+				.map(ProduitResponse::new)
 				.toList();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	@PreAuthorize("hasRole('ADMIN')")
-	public FournisseurResponse add(@Valid @RequestBody FournisseurRequest fournisseurRequest, BindingResult result) {
+	public ProduitResponse add(@Valid @RequestBody ProduitRequest produitRequest, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new EntityNotValidException();
 		}
 		
+		Produit produit = new Produit();
 		Fournisseur fournisseur = new Fournisseur();
 		
-		BeanUtils.copyProperties(fournisseurRequest, fournisseur);
+		BeanUtils.copyProperties(produitRequest, produit);
 		
-		this.repoFournisseur.save(fournisseur);
+		produit.setFournisseur(fournisseur);
+		fournisseur.setId(produitRequest.getFournisseurId());
 		
-		return new FournisseurResponse(fournisseur);
+		this.repoProduit.save(produit);
+		
+		return new ProduitResponse(produit);
 	}
 	
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public FournisseurResponse edit(@PathVariable int id, @Valid @RequestBody FournisseurRequest fournisseurRequest, BindingResult result) {
+	public ProduitResponse edit(@PathVariable int id, @Valid @RequestBody ProduitRequest produitRequest, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new EntityNotValidException();
 		}
 		
-		Fournisseur fournisseur = this.repoFournisseur.findById(id).orElseThrow(EntityNotFoundException::new);
+		Produit produit = this.repoProduit.findById(id).orElseThrow(EntityNotFoundException::new);
 		
-		BeanUtils.copyProperties(fournisseurRequest, fournisseur);
+		BeanUtils.copyProperties(produitRequest, produit);
 		
-		this.repoFournisseur.save(fournisseur);
+		this.repoProduit.save(produit);
 		
-		return new FournisseurResponse(fournisseur);
+		return new ProduitResponse(produit);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -78,7 +83,7 @@ public class FournisseurApiController {
 	@PreAuthorize("hasRole('ADMIN')")
 	public void deleteById(@PathVariable int id) {
 		try {
-			this.repoFournisseur.deleteById(id);			
+			this.repoProduit.deleteById(id);			
 		}
 		
 		catch (Exception ex) {
